@@ -96,10 +96,6 @@ class UploadViewController: UIViewController, PHPickerViewControllerDelegate{
         let picker : PHPickerViewController = PHPickerViewController(configuration: config)
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
-        
-        
-        
-        
     }
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
