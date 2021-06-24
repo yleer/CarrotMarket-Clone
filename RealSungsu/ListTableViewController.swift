@@ -6,17 +6,35 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 import Firebase
 
 class ListTableViewController: UITableViewController {
     
     // need to get data from firestore
     var data : [ItemData] = []
-    
-
     var loadingView = UIView()
+    var spinner = UIActivityIndicatorView(style: .large)
+    var tmpView = UIView()
+    
+    
+    private func configureLoading(){
+        tmpView = UIView(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+        
+        let centerFrame = tmpView.center
+        let spinnerSize = CGSize(width: 100, height: 100)
+        
+        spinner = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: centerFrame.x - spinnerSize.width / 2, y: centerFrame.y - spinnerSize.height), size: spinnerSize))
+        spinner.style = .large
+        spinner.startAnimating()
+        tmpView.addSubview(spinner)
+        tmpView.backgroundColor = .darkGray
+        view.addSubview(tmpView)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLoading()
         reloadData()
     }
     
@@ -50,17 +68,17 @@ class ListTableViewController: UITableViewController {
                             self.data[index].images = image
                             let Ind = IndexPath(row: index, section: 0)
                             self.tableView.reloadRows(at: [Ind], with: .automatic)
-
                         }
                     }
                 }
-                
+                    
                 self.tableView.reloadData()
+                self.tmpView.removeFromSuperview()
             }
         }
     }
     
-    func reloadData(){
+    private func reloadData(){
         data = []
         loadData()
     }
