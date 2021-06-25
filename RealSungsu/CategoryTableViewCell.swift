@@ -8,15 +8,5 @@
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    
-
-    @IBAction func selectCategory(_ sender: UIButton) {
-        // segue and show categories.
-    }
+    @IBOutlet weak var locationButton: UIButton!
 }

@@ -6,72 +6,144 @@
 //
 
 import UIKit
-// five sections
-// 1. upload image section
-// 2. title
-// 3. category
-// 4. price
-// 5. contents
-class Upload2TableViewController: UITableViewController {
+
+class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
-    var cellIdenteifiers = ["image Section","title Section","category","price","contents"]
-    
-    // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
     
     
+    
+    let identeifer = ["1","2","3","4","5"]
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! TitleTableViewCell
+            cell.titleTextField.tag = indexPath.row
+            cell.titleTextField.delegate = self
+            cell.titleTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
+            return cell
+            
+        }else if indexPath.row == 2{
+            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! CategoryTableViewCell
+            cell.locationButton.setTitle(selectedLocation.loaction, for: .normal)
+            cell.locationButton.addTarget(self, action: #selector(segueToCategory), for: .touchUpInside)
+            
+            return cell
+        }else if indexPath.row == 3{
+            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! PriceTableViewCell
+            cell.priceTextField.tag = indexPath.row
+            cell.priceTextField.delegate = self
+            cell.priceTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
+            return cell
+            
+        }else if indexPath.row == 4{
+            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! ContentTableViewCell
+            cell.contentTextView.tag = indexPath.row
+            cell.contentTextView.delegate = self
+            return cell
+            
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath)
+            return cell
+        }
         
-        let currentSection = indexPath.section
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdenteifiers[indexPath.section], for: indexPath)
+    }
+    
+    var dic : [String : String] = [:]
+    
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = nil
+        textView.textColor = .black
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
         
-        switch currentSection {
-        case 0:
-            cell = cell as! image2TableViewCell
-
+        if let itemContent = textView.text{
+            dic["content"] = itemContent
+        }
+    }
+    
+    @objc func valueChanged(_ textField: UITextField){
+        switch textField.tag {
         case 1:
-            cell = cell as! TitleTableViewCell
-        case 2:
-            cell = cell as! CategoryTableViewCell
+            if let itemTitle = textField.text{
+                dic["title"] = itemTitle
+            }
         case 3:
-            cell = cell as! PriceTableViewCell
-        case 4:
-            cell = cell as! ContentTableViewCell
+            if let itemPrice = textField.text{
+                dic["price"] = itemPrice
+            }
         default:
-            print("hello")
+            print("DSF")
         }
-        
-        return cell
     }
     
-    
-    
+    @objc func segueToCategory(){
+        performSegue(withIdentifier: "select category", sender: self)
+    }
 
-    // MARK: cell height.
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 100
-        }else if indexPath.section == 1{
-            return 70
-        }else if indexPath.section == 2{
-            return 70
-        }else if indexPath.section == 3{
-            return 70
-        }else if indexPath.section == 4{
-            return 500
+    
+    var selectedLocation = SelectedCategory()
+  
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "select category"{
+            if let destinationVC = segue.destination as? LocationCategoryTableViewController{
+                destinationVC.selectedCategory = selectedLocation
+            }else{
+                print("Gdfsg")
+            }
         }
-        return 100
     }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0{
+            return 100
+        }else if indexPath.row == 1{
+            return 100
+        }else if indexPath.row == 2{
+            return 100
+        }else if indexPath.row == 3{
+            return 100
+        }else if indexPath.row == 4{
+            return 100
+        }else{
+            return 100
+        }
+    }
+    
+    @IBAction func saveData(_ sender: UIBarButtonItem) {
+        print(selectedLocation.loaction)
+        let index = IndexPath(row: 3, section: 0)
+        if let cell = tableView(tableView, cellForRowAt: index) as? CategoryTableViewCell{
+            cell.locationButton.titleLabel?.text = selectedLocation.loaction
+            cell.locationButton.setTitle(selectedLocation.loaction, for: .normal)
+            print("afs")
+        }else{
+            print("not workiong")
+        }
+        tableView.reloadRows(at: [index], with: .automatic)
+        
+        print(dic)
+    }
+    
 }
+
+
+// Image만 하자 우선.
+
