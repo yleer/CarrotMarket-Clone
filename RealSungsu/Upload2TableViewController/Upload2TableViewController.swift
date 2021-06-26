@@ -6,12 +6,50 @@
 //
 
 import UIKit
+import PhotosUI
 
-class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
+class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate, PHPickerViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    // MARK: Image Picker part.
+    var images : [UIImage] = []
+    {
+        didSet{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
+    }
+    
+    func presentPickerView(){
+        var config : PHPickerConfiguration = PHPickerConfiguration()
+        config.filter = PHPickerFilter.images
+        config.selectionLimit = 10
+        
+        let picker : PHPickerViewController = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        for item in results{
+            item.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                if let img = image as? UIImage{
+                    self.images.append(img)
+                }
+            }
+        }
+        
+        picker.dismiss(animated: true)
+        
+    }
+    
+    
+    
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -20,7 +58,6 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tableView.reloadData()
     }
     
@@ -28,7 +65,17 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
     
     let identeifer = ["1","2","3","4","5"]
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 1{
+        
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! Image2TableViewCell
+            
+            cell.addImageButton.addTarget(self, action: #selector(imagePickerPopUp), for: .touchUpInside)
+            if images.count != 0{
+                cell.addImageButton.setImage(images[0], for: .normal)
+            }
+            
+            return cell
+        }else if indexPath.row == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! TitleTableViewCell
             cell.titleTextField.tag = indexPath.row
             cell.titleTextField.delegate = self
@@ -94,12 +141,13 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
     @objc func segueToCategory(){
         performSegue(withIdentifier: "select category", sender: self)
     }
+    @objc func imagePickerPopUp(){
+        presentPickerView()
+    }
 
     
     var selectedLocation = SelectedCategory()
   
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "select category"{
             if let destinationVC = segue.destination as? LocationCategoryTableViewController{
@@ -128,18 +176,7 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
     }
     
     @IBAction func saveData(_ sender: UIBarButtonItem) {
-        print(selectedLocation.loaction)
-        let index = IndexPath(row: 3, section: 0)
-        if let cell = tableView(tableView, cellForRowAt: index) as? CategoryTableViewCell{
-            cell.locationButton.titleLabel?.text = selectedLocation.loaction
-            cell.locationButton.setTitle(selectedLocation.loaction, for: .normal)
-            print("afs")
-        }else{
-            print("not workiong")
-        }
-        tableView.reloadRows(at: [index], with: .automatic)
-        
-        print(dic)
+
     }
     
 }

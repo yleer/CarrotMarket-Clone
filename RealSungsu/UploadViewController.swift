@@ -60,7 +60,6 @@ class UploadViewController: UIViewController, PHPickerViewControllerDelegate{
             }
             
             
-            
             db.collection("realestate data").addDocument(data: [
                 "title" : title,
                 "location" : location,
@@ -72,12 +71,7 @@ class UploadViewController: UIViewController, PHPickerViewControllerDelegate{
                     print("succ")
                 }
             }
-            
-           
-            
             navigationController?.popViewController(animated: true)
-            
-            
         }
     }
     
@@ -85,7 +79,6 @@ class UploadViewController: UIViewController, PHPickerViewControllerDelegate{
     
     @IBAction func uploadImage(_ sender: UIButton) {
         presentPickerView()
-        
     }
     
     func presentPickerView(){
@@ -106,7 +99,11 @@ class UploadViewController: UIViewController, PHPickerViewControllerDelegate{
                 }
             }
         }
+        
+        picker.dismiss(animated: true)
     }
+    
+    
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)

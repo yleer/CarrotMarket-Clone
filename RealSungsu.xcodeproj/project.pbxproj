@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		880ADB4D2685800B003705B0 /* LocationCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880ADB4C2685800B003705B0 /* LocationCategoryTableViewController.swift */; };
+		886681932686055800C8FACC /* Content2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886681922686055800C8FACC /* Content2TableViewCell.swift */; };
 		88AFE7FB2684AE7900D2C0F7 /* Upload2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */; };
 		88AFE7FD2684AF1D00D2C0F7 /* Image2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE7FC2684AF1D00D2C0F7 /* Image2TableViewCell.swift */; };
 		88AFE7FF2684AF2800D2C0F7 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE7FE2684AF2800D2C0F7 /* TitleTableViewCell.swift */; };
@@ -16,6 +17,7 @@
 		88AFE8052684AF4F00D2C0F7 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */; };
 		88B0CA522685F73A005DB9E8 /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */; };
 		88B0CA54268603BA005DB9E8 /* Detail2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */; };
+		88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */; };
 		88B3AA6326834657001D98C0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3AA6226834657001D98C0 /* LoadingViewController.swift */; };
 		88C4E68E2680557A00983D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E68D2680557A00983D36 /* AppDelegate.swift */; };
 		88C4E6902680557A00983D36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E68F2680557A00983D36 /* SceneDelegate.swift */; };
@@ -38,6 +40,7 @@
 		3A080BD97EC8BCBACDAC1B3B /* Pods-RealSungsu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealSungsu.release.xcconfig"; path = "Target Support Files/Pods-RealSungsu/Pods-RealSungsu.release.xcconfig"; sourceTree = "<group>"; };
 		435F522A413EABA50C72A342 /* Pods-RealSungsu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealSungsu.debug.xcconfig"; path = "Target Support Files/Pods-RealSungsu/Pods-RealSungsu.debug.xcconfig"; sourceTree = "<group>"; };
 		880ADB4C2685800B003705B0 /* LocationCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCategoryTableViewController.swift; sourceTree = "<group>"; };
+		886681922686055800C8FACC /* Content2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content2TableViewCell.swift; sourceTree = "<group>"; };
 		88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upload2TableViewController.swift; sourceTree = "<group>"; };
 		88AFE7FC2684AF1D00D2C0F7 /* Image2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image2TableViewCell.swift; sourceTree = "<group>"; };
 		88AFE7FE2684AF2800D2C0F7 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
 		88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail2TableViewController.swift; sourceTree = "<group>"; };
+		88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTableViewCell.swift; sourceTree = "<group>"; };
 		88B3AA6226834657001D98C0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		88C4E68A2680557A00983D36 /* RealSungsu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealSungsu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C4E68D2680557A00983D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8895C62E2686B83F000DCD0A /* Upload2TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */,
+				88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */,
+				88AFE7FC2684AF1D00D2C0F7 /* Image2TableViewCell.swift */,
+				88AFE7FE2684AF2800D2C0F7 /* TitleTableViewCell.swift */,
+				88AFE8002684AF3100D2C0F7 /* PriceTableViewCell.swift */,
+				88AFE8022684AF3F00D2C0F7 /* ContentTableViewCell.swift */,
+				88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */,
+			);
+			path = Upload2TableViewController;
+			sourceTree = "<group>";
+		};
+		88B0CA572686049C005DB9E8 /* Detail2TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */,
+				88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */,
+				886681922686055800C8FACC /* Content2TableViewCell.swift */,
+			);
+			path = Detail2TableViewController;
+			sourceTree = "<group>";
+		};
 		88C4E6812680557A00983D36 = {
 			isa = PBXGroup;
 			children = (
@@ -112,15 +140,9 @@
 				88C4E69B2680557D00983D36 /* Info.plist */,
 				88C4E6A12680563600983D36 /* Supporting Files */,
 				88B3AA6226834657001D98C0 /* LoadingViewController.swift */,
-				88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */,
-				88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */,
-				88AFE7FC2684AF1D00D2C0F7 /* Image2TableViewCell.swift */,
-				88AFE7FE2684AF2800D2C0F7 /* TitleTableViewCell.swift */,
-				88AFE8002684AF3100D2C0F7 /* PriceTableViewCell.swift */,
-				88AFE8022684AF3F00D2C0F7 /* ContentTableViewCell.swift */,
-				88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */,
+				8895C62E2686B83F000DCD0A /* Upload2TableViewController */,
 				880ADB4C2685800B003705B0 /* LocationCategoryTableViewController.swift */,
-				88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */,
+				88B0CA572686049C005DB9E8 /* Detail2TableViewController */,
 			);
 			path = RealSungsu;
 			sourceTree = "<group>";
@@ -275,6 +297,7 @@
 				88C4E68E2680557A00983D36 /* AppDelegate.swift in Sources */,
 				88C4E6AC268057CC00983D36 /* UploadViewController.swift in Sources */,
 				88C4E6AE268057CC00983D36 /* DetailViewController.swift in Sources */,
+				88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */,
 				88C4E6B0268057CC00983D36 /* LogInViewController.swift in Sources */,
 				88AFE7FD2684AF1D00D2C0F7 /* Image2TableViewCell.swift in Sources */,
 				88AFE8012684AF3100D2C0F7 /* PriceTableViewCell.swift in Sources */,
@@ -284,6 +307,7 @@
 				88C4E6902680557A00983D36 /* SceneDelegate.swift in Sources */,
 				88AFE7FB2684AE7900D2C0F7 /* Upload2TableViewController.swift in Sources */,
 				88C4E6AD268057CC00983D36 /* ListTableViewController.swift in Sources */,
+				886681932686055800C8FACC /* Content2TableViewCell.swift in Sources */,
 				880ADB4D2685800B003705B0 /* LocationCategoryTableViewController.swift in Sources */,
 				88B0CA522685F73A005DB9E8 /* SelectedCategory.swift in Sources */,
 				88B0CA54268603BA005DB9E8 /* Detail2TableViewController.swift in Sources */,
