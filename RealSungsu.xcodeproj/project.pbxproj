@@ -10,6 +10,8 @@
 		880ADB4D2685800B003705B0 /* LocationCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880ADB4C2685800B003705B0 /* LocationCategoryTableViewController.swift */; };
 		881ED3DC2686DC970094177B /* Image2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881ED3DB2686DC970094177B /* Image2TableViewCell.swift */; };
 		886681932686055800C8FACC /* Content2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886681922686055800C8FACC /* Content2TableViewCell.swift */; };
+		887840042689A772004BCC5F /* DetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887840022689A772004BCC5F /* DetailImageCell.swift */; };
+		887840052689A772004BCC5F /* DetailImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887840032689A772004BCC5F /* DetailImageCell.xib */; };
 		8895C6352686D9AA000DCD0A /* AddImageButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895C6342686D9A9000DCD0A /* AddImageButtonCollectionViewCell.swift */; };
 		8895C6372686D9CF000DCD0A /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895C6362686D9CF000DCD0A /* ImageCollectionViewCell.swift */; };
 		88AFE7FB2684AE7900D2C0F7 /* Upload2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */; };
@@ -42,6 +44,8 @@
 		880ADB4C2685800B003705B0 /* LocationCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCategoryTableViewController.swift; sourceTree = "<group>"; };
 		881ED3DB2686DC970094177B /* Image2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image2TableViewCell.swift; sourceTree = "<group>"; };
 		886681922686055800C8FACC /* Content2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content2TableViewCell.swift; sourceTree = "<group>"; };
+		887840022689A772004BCC5F /* DetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageCell.swift; sourceTree = "<group>"; };
+		887840032689A772004BCC5F /* DetailImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailImageCell.xib; sourceTree = "<group>"; };
 		8895C6342686D9A9000DCD0A /* AddImageButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		8895C6362686D9CF000DCD0A /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upload2TableViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */,
 				88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */,
 				886681922686055800C8FACC /* Content2TableViewCell.swift */,
+				887840022689A772004BCC5F /* DetailImageCell.swift */,
+				887840032689A772004BCC5F /* DetailImageCell.xib */,
 			);
 			path = Detail2TableViewController;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 			files = (
 				88C4E69A2680557D00983D36 /* LaunchScreen.storyboard in Resources */,
 				88C4E6A32680570E00983D36 /* GoogleService-Info.plist in Resources */,
+				887840052689A772004BCC5F /* DetailImageCell.xib in Resources */,
 				88C4E6972680557D00983D36 /* Assets.xcassets in Resources */,
 				88C4E6952680557A00983D36 /* Main.storyboard in Resources */,
 			);
@@ -342,6 +349,7 @@
 				88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */,
 				88B3AA6326834657001D98C0 /* LoadingViewController.swift in Sources */,
 				8895C6352686D9AA000DCD0A /* AddImageButtonCollectionViewCell.swift in Sources */,
+				887840042689A772004BCC5F /* DetailImageCell.swift in Sources */,
 				88C4E6902680557A00983D36 /* SceneDelegate.swift in Sources */,
 				88AFE7FB2684AE7900D2C0F7 /* Upload2TableViewController.swift in Sources */,
 				88C4E6AD268057CC00983D36 /* ListTableViewController.swift in Sources */,

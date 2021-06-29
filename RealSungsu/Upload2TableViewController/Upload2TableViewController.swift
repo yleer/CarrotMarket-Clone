@@ -217,8 +217,9 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
             
             if let title = dic["title"], let content = dic["content"], let price = dic["price"]{
                 var num = 1
-                let restUrl = "photos/\(title)/\(num).jpeg"
+                
                 for img in images{
+                    let restUrl = "photos/\(title)/\(num).jpeg"
                     let storageRef = Storage.storage().reference(withPath: restUrl)
                     num += 1
                     guard let imageData = img.jpegData(compressionQuality: 0.1) else {return}

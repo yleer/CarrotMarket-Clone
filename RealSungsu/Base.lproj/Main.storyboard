@@ -201,7 +201,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <segue destination="8ln-Rv-LFZ" kind="show" identifier="show detail" id="5vo-ZN-kcN"/>
+                        <segue destination="q0Y-vp-ooD" kind="show" identifier="show detail" id="DKR-rD-kSC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J94-wn-P93" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -470,6 +470,9 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="X6P-lm-j6C" secondAttribute="trailing" id="yl0-4I-L9t"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="idLabel" destination="X6P-lm-j6C" id="CVG-3d-bGO"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="content cell" rowHeight="197" id="gyV-zA-9ts" customClass="Content2TableViewCell" customModule="RealSungsu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="150.5" width="414" height="197"/>
@@ -478,18 +481,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="197"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My7-64-Rk0">
-                                            <rect key="frame" x="20" y="11" width="374" height="175"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My7-64-Rk0">
+                                            <rect key="frame" x="20" y="11" width="374" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="My7-64-Rk0" secondAttribute="trailing" id="I44-ds-5Fr"/>
-                                        <constraint firstItem="My7-64-Rk0" firstAttribute="leading" secondItem="lN2-b2-tfq" secondAttribute="leadingMargin" id="SOY-DT-Ee8"/>
-                                        <constraint firstItem="My7-64-Rk0" firstAttribute="top" secondItem="lN2-b2-tfq" secondAttribute="topMargin" id="rvR-BH-jMo"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="My7-64-Rk0" secondAttribute="bottom" id="udv-MQ-5al"/>
+                                        <constraint firstItem="My7-64-Rk0" firstAttribute="top" secondItem="lN2-b2-tfq" secondAttribute="topMargin" id="MNF-l4-eJk"/>
+                                        <constraint firstItem="My7-64-Rk0" firstAttribute="leading" secondItem="lN2-b2-tfq" secondAttribute="leadingMargin" id="V7G-Fy-tfU"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="My7-64-Rk0" secondAttribute="trailing" id="ndE-aE-mwr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -502,10 +504,11 @@
                             <outlet property="delegate" destination="q0Y-vp-ooD" id="RDb-fg-xD8"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="syH-VV-Kaa"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ge4-iP-MDX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3351" y="820"/>
+            <point key="canvasLocation" x="3758" y="706"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="UCS-J3-9gE">
@@ -554,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3c-8e-TtU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4245" y="820"/>
+            <point key="canvasLocation" x="5155.072463768116" y="819.64285714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l8J-0u-gs1">
@@ -576,7 +579,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fyv-u0-2XU"/>
+        <segue reference="R85-ny-fkW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

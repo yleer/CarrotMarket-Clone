@@ -113,7 +113,7 @@ class ListTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "show detail"{
-            if let destinationVC = segue.destination as? DetailViewController{
+            if let destinationVC = segue.destination as? Detail2TableViewController{
                 destinationVC.itemImageName = data[selectIndex].images
                 destinationVC.itemLocationName = data[selectIndex].location
                 destinationVC.itemTitleName = data[selectIndex].title
