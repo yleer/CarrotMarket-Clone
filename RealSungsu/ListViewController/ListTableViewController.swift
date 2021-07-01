@@ -14,33 +14,33 @@ class ListTableViewController: UITableViewController {
     // need to get data from firestore
     var data : [ItemData] = []
     var loadingView = UIView()
-    var spinner = UIActivityIndicatorView(style: .large)
-    var tmpView = UIView()
     
     
     private func configureLoading(){
-        tmpView = UIView(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
+        var spinner = UIActivityIndicatorView(style: .large)
+        loadingView = UIView(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
         
-        let centerFrame = tmpView.center
+        let centerFrame = loadingView.center
         let spinnerSize = CGSize(width: 100, height: 100)
         
         spinner = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: centerFrame.x - spinnerSize.width / 2, y: centerFrame.y - spinnerSize.height), size: spinnerSize))
         spinner.style = .large
         spinner.startAnimating()
-        tmpView.addSubview(spinner)
-        tmpView.backgroundColor = .darkGray
-        view.addSubview(tmpView)
+        loadingView.addSubview(spinner)
+        loadingView.backgroundColor = .darkGray
+        view.addSubview(loadingView)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLoading()
-        reloadData()
+        loadData()
     }
     
     let db = Firestore.firestore()
     
     func loadData() {
+        data = []
         db.collection("realestate data").getDocuments { querySnapshot, error in
             if let e = error{
                 print(e)
@@ -59,7 +59,7 @@ class ListTableViewController: UITableViewController {
                 for index in 0..<self.data.count{
                     let restUrl = "photos/\(self.data[index].title)/1.jpeg"
                     let storageRef = Storage.storage().reference(withPath: restUrl)
-                    storageRef.getData(maxSize: 4 * 1024 * 1024) { imageData, error in
+                    storageRef.getData(maxSize: Int64(Constants.maxSize)) { imageData, error in
                         if let e = error{
                             print(e)
                             return
@@ -73,18 +73,14 @@ class ListTableViewController: UITableViewController {
                 }
                     
                 self.tableView.reloadData()
-                self.tmpView.removeFromSuperview()
+                self.loadingView.removeFromSuperview()
             }
         }
     }
-    
-    private func reloadData(){
-        data = []
-        loadData()
-    }
+
     
     @IBAction func refreshTableView(_ sender: UIBarButtonItem) {
-        reloadData()
+        loadData()
     }
     
     // MARK: - Table view data source
@@ -125,3 +121,5 @@ class ListTableViewController: UITableViewController {
     }
     
 }
+
+

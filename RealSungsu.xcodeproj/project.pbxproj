@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		880ADB4D2685800B003705B0 /* LocationCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880ADB4C2685800B003705B0 /* LocationCategoryTableViewController.swift */; };
+		880C6E7A268AF95700390CBA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C6E79268AF95700390CBA /* Constants.swift */; };
 		881ED3DC2686DC970094177B /* Image2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881ED3DB2686DC970094177B /* Image2TableViewCell.swift */; };
 		886681932686055800C8FACC /* Content2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886681922686055800C8FACC /* Content2TableViewCell.swift */; };
 		887840042689A772004BCC5F /* DetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887840022689A772004BCC5F /* DetailImageCell.swift */; };
@@ -30,7 +31,6 @@
 		88C4E69A2680557D00983D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88C4E6982680557D00983D36 /* LaunchScreen.storyboard */; };
 		88C4E6A32680570E00983D36 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C4E6A22680570E00983D36 /* GoogleService-Info.plist */; };
 		88C4E6AD268057CC00983D36 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A5268057C400983D36 /* ListTableViewController.swift */; };
-		88C4E6AE268057CC00983D36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A6268057C500983D36 /* DetailViewController.swift */; };
 		88C4E6B0268057CC00983D36 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A8268057C800983D36 /* LogInViewController.swift */; };
 		88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */; };
 		88C4E6B2268057CC00983D36 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6AA268057CB00983D36 /* ItemData.swift */; };
@@ -42,6 +42,7 @@
 		3A080BD97EC8BCBACDAC1B3B /* Pods-RealSungsu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealSungsu.release.xcconfig"; path = "Target Support Files/Pods-RealSungsu/Pods-RealSungsu.release.xcconfig"; sourceTree = "<group>"; };
 		435F522A413EABA50C72A342 /* Pods-RealSungsu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealSungsu.debug.xcconfig"; path = "Target Support Files/Pods-RealSungsu/Pods-RealSungsu.debug.xcconfig"; sourceTree = "<group>"; };
 		880ADB4C2685800B003705B0 /* LocationCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCategoryTableViewController.swift; sourceTree = "<group>"; };
+		880C6E79268AF95700390CBA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		881ED3DB2686DC970094177B /* Image2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image2TableViewCell.swift; sourceTree = "<group>"; };
 		886681922686055800C8FACC /* Content2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content2TableViewCell.swift; sourceTree = "<group>"; };
 		887840022689A772004BCC5F /* DetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageCell.swift; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		88C4E69B2680557D00983D36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88C4E6A22680570E00983D36 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88C4E6A5268057C400983D36 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
-		88C4E6A6268057C500983D36 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		88C4E6A8268057C800983D36 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		88C4E6AA268057CB00983D36 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
@@ -178,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				88C4E6932680557A00983D36 /* Main.storyboard */,
-				88C4E6A6268057C500983D36 /* DetailViewController.swift */,
 				88C4E6AA268057CB00983D36 /* ItemData.swift */,
 				88B0CA572686049C005DB9E8 /* Detail2TableViewController */,
 				8875F68526883E86005B6BA5 /* LocationCategoryTableViewController */,
@@ -189,6 +188,7 @@
 				88C4E6A12680563600983D36 /* Supporting Files */,
 				88C4E6A22680570E00983D36 /* GoogleService-Info.plist */,
 				88C4E69B2680557D00983D36 /* Info.plist */,
+				880C6E79268AF95700390CBA /* Constants.swift */,
 			);
 			path = RealSungsu;
 			sourceTree = "<group>";
@@ -342,8 +342,8 @@
 				88C4E6B3268057CC00983D36 /* RegisterViewController.swift in Sources */,
 				88AFE8032684AF3F00D2C0F7 /* ContentTableViewCell.swift in Sources */,
 				88C4E68E2680557A00983D36 /* AppDelegate.swift in Sources */,
-				88C4E6AE268057CC00983D36 /* DetailViewController.swift in Sources */,
 				88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */,
+				880C6E7A268AF95700390CBA /* Constants.swift in Sources */,
 				88C4E6B0268057CC00983D36 /* LogInViewController.swift in Sources */,
 				88AFE8012684AF3100D2C0F7 /* PriceTableViewCell.swift in Sources */,
 				88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */,
