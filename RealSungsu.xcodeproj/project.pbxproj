@@ -35,6 +35,9 @@
 		88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */; };
 		88C4E6B2268057CC00983D36 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6AA268057CB00983D36 /* ItemData.swift */; };
 		88C4E6B3268057CC00983D36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6AB268057CC00983D36 /* RegisterViewController.swift */; };
+		88F75FB2268D81A300A77D2F /* MonthlyPayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F75FB1268D81A300A77D2F /* MonthlyPayTableViewCell.swift */; };
+		88F75FB4268D81BF00A77D2F /* ManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F75FB3268D81BF00A77D2F /* ManagementTableViewCell.swift */; };
+		88F75FB6268D851A00A77D2F /* PhoneNumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F75FB5268D851A00A77D2F /* PhoneNumberTableViewCell.swift */; };
 		C7DF0E2DBED59C42D25E021C /* Pods_RealSungsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A96BD658E005354916E56C /* Pods_RealSungsu.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,9 @@
 		88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		88C4E6AA268057CB00983D36 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		88C4E6AB268057CC00983D36 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		88F75FB1268D81A300A77D2F /* MonthlyPayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyPayTableViewCell.swift; sourceTree = "<group>"; };
+		88F75FB3268D81BF00A77D2F /* ManagementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementTableViewCell.swift; sourceTree = "<group>"; };
+		88F75FB5268D851A00A77D2F /* PhoneNumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTableViewCell.swift; sourceTree = "<group>"; };
 		F8A96BD658E005354916E56C /* Pods_RealSungsu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealSungsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +137,9 @@
 				88AFE8002684AF3100D2C0F7 /* PriceTableViewCell.swift */,
 				88AFE8022684AF3F00D2C0F7 /* ContentTableViewCell.swift */,
 				88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */,
+				88F75FB1268D81A300A77D2F /* MonthlyPayTableViewCell.swift */,
+				88F75FB3268D81BF00A77D2F /* ManagementTableViewCell.swift */,
+				88F75FB5268D851A00A77D2F /* PhoneNumberTableViewCell.swift */,
 			);
 			path = Upload2TableViewController;
 			sourceTree = "<group>";
@@ -337,9 +346,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F75FB2268D81A300A77D2F /* MonthlyPayTableViewCell.swift in Sources */,
 				88AFE7FF2684AF2800D2C0F7 /* TitleTableViewCell.swift in Sources */,
 				88C4E6B2268057CC00983D36 /* ItemData.swift in Sources */,
 				88C4E6B3268057CC00983D36 /* RegisterViewController.swift in Sources */,
+				88F75FB4268D81BF00A77D2F /* ManagementTableViewCell.swift in Sources */,
+				88F75FB6268D851A00A77D2F /* PhoneNumberTableViewCell.swift in Sources */,
 				88AFE8032684AF3F00D2C0F7 /* ContentTableViewCell.swift in Sources */,
 				88C4E68E2680557A00983D36 /* AppDelegate.swift in Sources */,
 				88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */,

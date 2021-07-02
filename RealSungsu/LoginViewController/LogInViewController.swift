@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import NaverThirdPartyLogin
 import Firebase
+import Alamofire
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController{
+    
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addGesture()
+        
+        
     }
     
     // MARK: Login part.
@@ -25,7 +33,7 @@ class LogInViewController: UIViewController {
                 if let e = error{
                     print(e.localizedDescription)
                 }else{
-                    self.performSegue(withIdentifier: "show table view", sender: self)
+                    self.performSegue(withIdentifier: "show tabBar", sender: self)
                 }
             }
         }

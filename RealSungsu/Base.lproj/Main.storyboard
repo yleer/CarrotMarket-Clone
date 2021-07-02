@@ -68,7 +68,7 @@
                     <connections>
                         <outlet property="idTextField" destination="vHQ-hI-ki7" id="J0B-t9-Zj8"/>
                         <outlet property="passwordTextField" destination="IIC-QC-rhG" id="rOq-5l-vmc"/>
-                        <segue destination="2tb-C9-42m" kind="show" identifier="show table view" id="R85-ny-fkW"/>
+                        <segue destination="LXQ-xc-cE9" kind="presentation" identifier="show tabBar" modalPresentationStyle="fullScreen" id="tS5-Lq-7v1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPs-mS-MKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -116,12 +116,63 @@
                     <connections>
                         <outlet property="idTextField" destination="KcY-Rl-Uem" id="16N-nf-MV7"/>
                         <outlet property="passwordTextField" destination="nuM-fj-Xc8" id="4c5-3c-LdY"/>
-                        <segue destination="2tb-C9-42m" kind="show" identifier="show tavleView" id="fyv-u0-2XU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5s-ky-3np" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="731"/>
+            <point key="canvasLocation" x="1777" y="799"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yaz-n6-HpA">
+            <objects>
+                <tabBarController id="LXQ-xc-cE9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="nB6-3d-7qq"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c1S-mY-x1o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wan-Um-D1a" kind="relationship" relationship="viewControllers" id="gpz-Tl-vDf"/>
+                        <segue destination="gzo-cM-o9n" kind="relationship" relationship="viewControllers" id="ooc-wK-qhW"/>
+                        <segue destination="ZCE-fP-FJm" kind="relationship" relationship="viewControllers" id="i5q-1A-eFA"/>
+                        <segue destination="5pR-Rl-Qqb" kind="relationship" relationship="viewControllers" id="z36-5n-kqH"/>
+                        <segue destination="5Xg-nl-kfh" kind="relationship" relationship="viewControllers" id="DeR-xU-aU3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdq-lP-Beu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2887" y="-60"/>
+        </scene>
+        <!--지도에서 찾기-->
+        <scene sceneID="8c6-R3-aZg">
+            <objects>
+                <viewController id="gzo-cM-o9n" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lZp-kG-Opt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dE4-B8-b1q">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9ZB-lC-fKh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9ZB-lC-fKh" firstAttribute="bottom" secondItem="dE4-B8-b1q" secondAttribute="bottom" id="DjS-oC-66Z"/>
+                            <constraint firstItem="9ZB-lC-fKh" firstAttribute="trailing" secondItem="dE4-B8-b1q" secondAttribute="trailing" id="Ksx-p1-9mP"/>
+                            <constraint firstItem="dE4-B8-b1q" firstAttribute="top" secondItem="9ZB-lC-fKh" secondAttribute="top" id="dTd-ac-8XZ"/>
+                            <constraint firstItem="dE4-B8-b1q" firstAttribute="leading" secondItem="9ZB-lC-fKh" secondAttribute="leading" id="f1l-oC-MOf"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="지도에서 찾기" id="Wpi-Jd-u3U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nfr-Xk-c9e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3993" y="-882"/>
         </scene>
         <!--List Table View Controller-->
         <scene sceneID="6yc-9M-ATD">
@@ -188,9 +239,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="nbh-ll-Dw6">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="IVW-ws-qjK">
+                            <barButtonItem systemItem="search" id="IVW-ws-qjK">
                                 <connections>
-                                    <segue destination="dpr-MB-ZJb" kind="show" id="K5B-Dd-9Qa"/>
+                                    <action selector="searchSetting:" destination="2tb-C9-42m" id="sKp-0u-i00"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="2X7-9P-9v9">
@@ -206,7 +257,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J94-wn-P93" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3759" y="-60"/>
+            <point key="canvasLocation" x="5096" y="-1694"/>
         </scene>
         <!--Upload2 Table View Controller-->
         <scene sceneID="ClQ-rE-tvp">
@@ -217,7 +268,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="1" rowHeight="146" id="lr8-Wu-U8R" customClass="Image2TableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="house image cell" rowHeight="146" id="lr8-Wu-U8R" customClass="Image2TableViewCell" customModule="RealSungsu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="146"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lr8-Wu-U8R" id="ygy-yY-y6d">
@@ -293,7 +344,7 @@
                                     <outlet property="imageCollectionView" destination="fcT-46-Ihe" id="z7S-OT-Vld"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="2" rowHeight="60" id="vmM-xm-KIx" customClass="TitleTableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="60" id="vmM-xm-KIx" customClass="TitleTableViewCell" customModule="RealSungsu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="170.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vmM-xm-KIx" id="bMo-6O-djC">
@@ -317,8 +368,32 @@
                                     <outlet property="titleTextField" destination="XiN-dK-KIA" id="pdw-An-JO7"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="3" rowHeight="60" id="Hsf-l4-8PB" customClass="CategoryTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="230.5" width="414" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="phoneNumber cell" rowHeight="76" id="Cg1-D3-Nuq" customClass="PhoneNumberTableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="230.5" width="414" height="76"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cg1-D3-Nuq" id="6fO-z7-yRP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="전화번호 입력하시오" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w8Y-JE-xyH">
+                                            <rect key="frame" x="20" y="11" width="374" height="54"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="w8Y-JE-xyH" firstAttribute="leading" secondItem="6fO-z7-yRP" secondAttribute="leadingMargin" id="00r-k3-VkJ"/>
+                                        <constraint firstItem="w8Y-JE-xyH" firstAttribute="top" secondItem="6fO-z7-yRP" secondAttribute="topMargin" id="KZE-a6-dFA"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="w8Y-JE-xyH" secondAttribute="bottom" id="Zxl-HI-PsW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="w8Y-JE-xyH" secondAttribute="trailing" id="wye-1M-yHt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="phoneNumberTextField" destination="w8Y-JE-xyH" id="hAC-uj-Z77"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="location cell" rowHeight="60" id="Hsf-l4-8PB" customClass="CategoryTableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="306.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hsf-l4-8PB" id="xr2-y7-LB4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -340,15 +415,15 @@
                                     <outlet property="locationButton" destination="ELn-Eg-ltG" id="P9y-ld-L3X"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="4" rowHeight="115" id="7hy-N2-hWa" customClass="PriceTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="290.5" width="414" height="115"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="price cell" rowHeight="94" id="7hy-N2-hWa" customClass="PriceTableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="366.5" width="414" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7hy-N2-hWa" id="gzA-5S-jXi">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="115"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="가격 (선택사항)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0mJ-2e-f3D">
-                                            <rect key="frame" x="20" y="0.0" width="394" height="115"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="보증금" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0mJ-2e-f3D">
+                                            <rect key="frame" x="20" y="0.0" width="394" height="94"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
@@ -364,8 +439,56 @@
                                     <outlet property="priceTextField" destination="0mJ-2e-f3D" id="bVA-DA-czI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="5" rowHeight="303" id="i6K-GL-bt9" customClass="ContentTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="405.5" width="414" height="303"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="monthly pay cell" rowHeight="89" id="1pK-a6-noL" customClass="MonthlyPayTableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="460.5" width="414" height="89"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1pK-a6-noL" id="m8X-zk-L0D">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="월세" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvq-lo-LA0">
+                                            <rect key="frame" x="20" y="11" width="374" height="67"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hvq-lo-LA0" firstAttribute="top" secondItem="m8X-zk-L0D" secondAttribute="topMargin" id="D1E-09-GdK"/>
+                                        <constraint firstItem="hvq-lo-LA0" firstAttribute="leading" secondItem="m8X-zk-L0D" secondAttribute="leadingMargin" id="juF-Ja-j17"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hvq-lo-LA0" secondAttribute="trailing" id="trg-Vv-2TE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hvq-lo-LA0" secondAttribute="bottom" id="xVh-FG-Ebq"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="monthlyPriceTextField" destination="hvq-lo-LA0" id="J8t-sA-vW2"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="management cell" rowHeight="92" id="Ipm-6N-oep" customClass="ManagementTableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="549.5" width="414" height="92"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ipm-6N-oep" id="QKO-xC-1Ei">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="관리비" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubS-o9-MZe">
+                                            <rect key="frame" x="20" y="11" width="374" height="70"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ubS-o9-MZe" secondAttribute="trailing" id="BRJ-j0-iLb"/>
+                                        <constraint firstItem="ubS-o9-MZe" firstAttribute="leading" secondItem="QKO-xC-1Ei" secondAttribute="leadingMargin" id="e5S-6g-Ka1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ubS-o9-MZe" secondAttribute="bottom" id="lNN-Vg-MPR"/>
+                                        <constraint firstItem="ubS-o9-MZe" firstAttribute="top" secondItem="QKO-xC-1Ei" secondAttribute="topMargin" id="lQ0-Sf-efD"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="managementPayTextField" destination="ubS-o9-MZe" id="C1z-7Q-aB2"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="content cell" rowHeight="303" id="i6K-GL-bt9" customClass="ContentTableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="641.5" width="414" height="303"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i6K-GL-bt9" id="8On-PF-pl1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="303"/>
@@ -409,7 +532,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcr-Rf-9yr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4924.6376811594209" y="-60.267857142857139"/>
+            <point key="canvasLocation" x="5095.652173913044" y="1721.6517857142856"/>
         </scene>
         <!--Location Category Table View Controller-->
         <scene sceneID="rqZ-Ul-3um">
@@ -438,7 +561,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="koU-dQ-zF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6109" y="-60"/>
+            <point key="canvasLocation" x="6216" y="1722"/>
         </scene>
         <!--Detail2 Table View Controller-->
         <scene sceneID="VIJ-RO-nV3">
@@ -508,7 +631,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ge4-iP-MDX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3758" y="706"/>
+            <point key="canvasLocation" x="6216" y="-1694"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l8J-0u-gs1">
@@ -526,12 +649,107 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlH-ua-uzb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="-60"/>
+            <point key="canvasLocation" x="709" y="-60"/>
+        </scene>
+        <!--매물등록-->
+        <scene sceneID="1b0-8I-cLw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Xg-nl-kfh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="매물등록" id="qF2-pc-RFK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="byO-BN-fvW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dpr-MB-ZJb" kind="relationship" relationship="rootViewController" id="LIt-Ff-eaG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Phi-Li-EfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4080" y="1722"/>
+        </scene>
+        <!--검색으로 찾기-->
+        <scene sceneID="uMb-vg-7hy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wan-Um-D1a" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="검색으로 찾기" id="pgV-i0-cmB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zhe-su-m4M">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2tb-C9-42m" kind="relationship" relationship="rootViewController" id="msF-mH-iyy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yMp-CE-PkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3993" y="-1694"/>
+        </scene>
+        <!--중고장터-->
+        <scene sceneID="cUu-mb-i5N">
+            <objects>
+                <viewController id="ZCE-fP-FJm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b9E-P4-7OM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중고장터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t48-Mo-ZrF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rga-Hd-wHs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="t48-Mo-ZrF" firstAttribute="top" secondItem="Rga-Hd-wHs" secondAttribute="top" id="YX7-Sr-4pD"/>
+                            <constraint firstItem="Rga-Hd-wHs" firstAttribute="bottom" secondItem="t48-Mo-ZrF" secondAttribute="bottom" id="bKg-Kb-RRB"/>
+                            <constraint firstItem="t48-Mo-ZrF" firstAttribute="leading" secondItem="Rga-Hd-wHs" secondAttribute="leading" id="nGG-kV-G5k"/>
+                            <constraint firstItem="Rga-Hd-wHs" firstAttribute="trailing" secondItem="t48-Mo-ZrF" secondAttribute="trailing" id="usd-Td-KDL"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="중고장터" id="jRe-06-F6f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qae-dZ-fXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3993" y="-129"/>
+        </scene>
+        <!--직거래 관련 팁-->
+        <scene sceneID="pgt-R4-cb9">
+            <objects>
+                <viewController id="5pR-Rl-Qqb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oNU-wW-GPG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="직거래 관련 팁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mam-Gc-xyw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ufT-c4-gVf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ufT-c4-gVf" firstAttribute="bottom" secondItem="mam-Gc-xyw" secondAttribute="bottom" id="Czx-ib-uCs"/>
+                            <constraint firstItem="mam-Gc-xyw" firstAttribute="leading" secondItem="ufT-c4-gVf" secondAttribute="leading" id="HBM-iR-Otr"/>
+                            <constraint firstItem="mam-Gc-xyw" firstAttribute="top" secondItem="ufT-c4-gVf" secondAttribute="top" id="KxI-C5-qs2"/>
+                            <constraint firstItem="ufT-c4-gVf" firstAttribute="trailing" secondItem="mam-Gc-xyw" secondAttribute="trailing" id="p53-qS-DSf"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="직거래 관련 팁" id="TZT-zr-ebd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uro-hV-amF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3993" y="818"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="fyv-u0-2XU"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

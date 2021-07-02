@@ -9,7 +9,7 @@ import UIKit
 import NVActivityIndicatorView
 import Firebase
 
-class ListTableViewController: UITableViewController {
+class ListTableViewController: UITableViewController, UITextFieldDelegate {
     
     // need to get data from firestore
     var data : [ItemData] = []
@@ -30,11 +30,16 @@ class ListTableViewController: UITableViewController {
         loadingView.backgroundColor = .darkGray
         view.addSubview(loadingView)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLoading()
         loadData()
+        headerView = UIView(frame: CGRect(x: 0, y: tableView.contentOffset.y + tableView.safeAreaInsets.top, width: view.frame.width, height: view.frame.height / 6))
+        searchSettingHeaderView()
+        view.addSubview(headerView)
+        
+        headerView.isHidden = true
     }
     
     let db = Firestore.firestore()
@@ -71,13 +76,13 @@ class ListTableViewController: UITableViewController {
                         }
                     }
                 }
-                    
+                
                 self.tableView.reloadData()
                 self.loadingView.removeFromSuperview()
             }
         }
     }
-
+    
     
     @IBAction func refreshTableView(_ sender: UIBarButtonItem) {
         loadData()
@@ -120,6 +125,146 @@ class ListTableViewController: UITableViewController {
         }
     }
     
+    var isHeaderUp = false{
+        didSet{
+            print(isHeaderUp)
+        }
+    }
+    @IBAction func searchSetting(_ sender: UIBarButtonItem) {
+        
+        if !isHeaderUp{
+            isHeaderUp = true
+            headerView.isHidden = false
+            
+        }else{
+            isHeaderUp = false
+            headerView.isHidden = true
+        }
+        
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let prevFrame = headerView.frame
+        headerView.frame = CGRect(x: prevFrame.minX, y: scrollView.contentOffset.y + scrollView.safeAreaInsets.top, width: prevFrame.width, height: prevFrame.height)
+        
+    }
+    
+    var headerView = UIView()
+    
+    // ok firestore itself doesnt support sub string search, maybe later need elastic.
+    @objc func confirmSearchSetting(){
+        let searchStirng = dic["price"]!!
+        print(searchStirng)
+        db.collection("realestate data").whereField("title", isGreaterThanOrEqualTo: searchStirng).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+            
+        }
+        
+    }
+    
+    
+    private func searchSettingHeaderView() -> UIView{
+        
+        headerView = UIView(frame: CGRect(x: 0, y: tableView.contentOffset.y + tableView.safeAreaInsets.top, width: view.frame.width, height: view.frame.height / 6))
+        headerView.tag = 1
+        headerView.backgroundColor = .white
+        let priceRangeTextField = UITextField()
+        let livingPeriod = UITextField()
+        let searchBar = UITextField()
+        let searchButton = UIButton()
+        
+        priceRangeTextField.translatesAutoresizingMaskIntoConstraints = false
+        livingPeriod.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        
+        priceRangeTextField.placeholder = "가격을 입력해주세요"
+        livingPeriod.placeholder = "얼마나 살거에요?"
+        searchBar.placeholder = "지역 및 학교 검색"
+        searchButton.setTitle("confirm", for: .normal)
+        
+        priceRangeTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
+        livingPeriod.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
+        searchBar.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
+        
+        
+        
+        priceRangeTextField.tag = 1
+        livingPeriod.tag = 2
+        searchBar.tag = 3
+        
+        
+        headerView.addSubview(priceRangeTextField)
+        headerView.addSubview(livingPeriod)
+        headerView.addSubview(searchBar)
+        headerView.addSubview(searchButton)
+        searchButton.backgroundColor = .gray
+        searchButton.addTarget(self, action: #selector(confirmSearchSetting), for: .touchUpInside)
+        
+        
+        NSLayoutConstraint.activate(
+            [
+                // top anchor
+                priceRangeTextField.topAnchor.constraint(equalTo: headerView.layoutMarginsGuide.topAnchor, constant: 8),
+                livingPeriod.topAnchor.constraint(equalTo: headerView.layoutMarginsGuide.topAnchor, constant: 8),
+                searchBar.topAnchor.constraint(equalTo: headerView.layoutMarginsGuide.topAnchor, constant: (headerView.frame.height / 3) + 8),
+                searchButton.topAnchor.constraint(equalTo: headerView.layoutMarginsGuide.topAnchor, constant: (headerView.frame.height / 3) * 2 + 8),
+                
+                
+                // leading anchor
+                priceRangeTextField.leadingAnchor.constraint(equalTo: headerView.layoutMarginsGuide.leadingAnchor, constant: 8),
+                livingPeriod.leadingAnchor.constraint(equalTo: headerView.layoutMarginsGuide.leadingAnchor, constant: (headerView.frame.width / 2) + 8),
+                searchBar.leadingAnchor.constraint(equalTo: headerView.layoutMarginsGuide.leadingAnchor, constant: 8),
+                searchButton.leadingAnchor.constraint(equalTo: headerView.layoutMarginsGuide.leadingAnchor, constant: (headerView.frame.width / 2) + 8),
+                
+                // trailing anchor
+                priceRangeTextField.trailingAnchor.constraint(equalTo: headerView.layoutMarginsGuide.leadingAnchor, constant: (headerView.frame.width / 2) - 8),
+                livingPeriod.trailingAnchor.constraint(equalTo: headerView.layoutMarginsGuide.trailingAnchor, constant: -8),
+                searchBar.trailingAnchor.constraint(equalTo: headerView.layoutMarginsGuide.trailingAnchor, constant: -8),
+                searchButton.trailingAnchor.constraint(equalTo: headerView.layoutMarginsGuide.trailingAnchor, constant: -8),
+                
+                // bottom anchor
+                priceRangeTextField.bottomAnchor.constraint(equalTo: headerView.layoutMarginsGuide.bottomAnchor, constant: -(headerView.frame.height/3) * 2 - 8 ),
+                livingPeriod.bottomAnchor.constraint(equalTo: headerView.layoutMarginsGuide.bottomAnchor, constant: -(headerView.frame.height/3) * 2 - 8 ),
+                searchBar.bottomAnchor.constraint(equalTo: headerView.layoutMarginsGuide.bottomAnchor, constant: -(headerView.frame.height / 3)  - 8),
+                searchButton.bottomAnchor.constraint(equalTo: headerView.layoutMarginsGuide.bottomAnchor, constant: -8)
+            ]
+        )
+        
+        return headerView
+    }
+    
+    var dic : [String : String?] = ["price" : nil, "howLong" : nil, "location" : nil]
+    @objc func valueChanged(_ textField: UITextField){
+        switch textField.tag {
+        case 1:
+            if let price = textField.text{
+                dic["price"] = price
+            }
+        case 2:
+            if let howLong = textField.text{
+                dic["howLong"] = howLong
+            }
+        case 3:
+            if let location = textField.text{
+                dic["location"] = location
+            }
+            
+        default:
+            print("not good.")
+        }
+    }
+    
 }
+
+
 
 
