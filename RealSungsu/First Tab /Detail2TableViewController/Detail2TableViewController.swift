@@ -68,7 +68,7 @@ class Detail2TableViewController: UITableViewController, UICollectionViewDataSou
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "id cell", for: indexPath) as! IDTableViewCell
             cell.idLabel.text = itemLocationName
-            cell.idLabel.sizeToFit()
+            cell.idLabel.numberOfLines = 0
             cell.price.text = "보증금 :  \(String(describing: itemPrice!))"
             cell.monthPay.text = "월세 :  \(String(describing: itemMonthlyPay!))"
             cell.managementPay.text = "관리비 :  \( String(describing: itemManagmentPay!))"
@@ -99,7 +99,7 @@ class Detail2TableViewController: UITableViewController, UICollectionViewDataSou
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
-            return 120
+            return 150
         }else {
             return 500
         }
