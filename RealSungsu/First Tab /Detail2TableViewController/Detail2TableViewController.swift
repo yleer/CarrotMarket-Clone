@@ -18,11 +18,20 @@ class Detail2TableViewController: UITableViewController, UICollectionViewDataSou
     var itemMonthlyPay : String?
     var itemPrice : String?
     
+    
+    var bottomView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableHeaderView = headerView()
         imageCollectionView?.reloadData()
         loadDataFromStoreage()
+        
+        
+        bottomView.frame = CGRect(x: 0, y: view.bounds.maxY - 200, width: view.frame.width, height: 200)
+        bottomView.backgroundColor = .green
+        
+        view.addSubview(bottomView)
     }
     
     var images : [UIImage] = []{
