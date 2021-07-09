@@ -19,4 +19,5 @@ struct ItemData {
     var price : String = "0"
     var monthlyPay : String = "0"
     var managementPrice : String = "0"
+    var postUser : String = ""
 }

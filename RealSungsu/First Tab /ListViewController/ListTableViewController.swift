@@ -61,8 +61,8 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                                 y : doc.data()["y"] as! String,
                                 price : doc.data()["price"] as! String,
                                 monthlyPay: doc.data()["monthlyPay"] as! String,
-                                managementPrice: doc.data()["managmentPay"] as! String
-                                
+                                managementPrice: doc.data()["managmentPay"] as! String,
+                                postUser: doc.data()["emai"] as! String
                             )
                             
                         )
@@ -125,7 +125,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "show detail"{
-            if let destinationVC = segue.destination as? Detail2TableViewController{
+            if let destinationVC = segue.destination as? DetailViewController{
                 destinationVC.itemImageName = data[selectIndex].images
                 destinationVC.itemLocationName = data[selectIndex].location
                 destinationVC.itemTitleName = data[selectIndex].title
@@ -133,6 +133,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                 destinationVC.itemPrice = data[selectIndex].price
                 destinationVC.itemMonthlyPay = data[selectIndex].monthlyPay
                 destinationVC.itemManagmentPay = data[selectIndex].managementPrice
+                destinationVC.postOwner = data[selectIndex].postUser
             }
         }
     }
@@ -170,7 +171,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
-    // ok firestore itself doesnt support sub string search, maybe later need elastic.
+    //  firestore itself doesnt support sub string search, maybe later need elastic.
     @objc func confirmSearchSetting(){
         let searchStirng = dic["price"]!!
         print(searchStirng)

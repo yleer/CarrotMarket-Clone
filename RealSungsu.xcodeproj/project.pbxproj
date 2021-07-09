@@ -72,9 +72,13 @@
 		88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */; };
 		88C4E6B2268057CC00983D36 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6AA268057CB00983D36 /* ItemData.swift */; };
 		88C4E6B3268057CC00983D36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6AB268057CC00983D36 /* RegisterViewController.swift */; };
+		88CADB7126968F2000885543 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CADB7026968F2000885543 /* DetailViewController.swift */; };
+		88CADB732696944500885543 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CADB722696944500885543 /* MessageModel.swift */; };
+		88CADB752696D13400885543 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CADB742696D13400885543 /* ChatViewController.swift */; };
 		88D069EA26908140000F22E4 /* JusoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D069E926908140000F22E4 /* JusoResponse.swift */; };
 		88D81DAE269440AF00CEC31C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D81DAD269440AF00CEC31C /* MapViewController.swift */; };
 		88D81DB5269441D100CEC31C /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D81DB4269441D100CEC31C /* SuccessViewController.swift */; };
+		88E970C22696E56B00BB5961 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E970C12696E56B00BB5961 /* MessageTableViewCell.swift */; };
 		88F75FB2268D81A300A77D2F /* MonthlyPayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F75FB1268D81A300A77D2F /* MonthlyPayTableViewCell.swift */; };
 		88F75FB4268D81BF00A77D2F /* ManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F75FB3268D81BF00A77D2F /* ManagementTableViewCell.swift */; };
 		88F75FB6268D851A00A77D2F /* PhoneNumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F75FB5268D851A00A77D2F /* PhoneNumberTableViewCell.swift */; };
@@ -160,9 +164,13 @@
 		88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		88C4E6AA268057CB00983D36 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		88C4E6AB268057CC00983D36 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		88CADB7026968F2000885543 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		88CADB722696944500885543 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		88CADB742696D13400885543 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		88D069E926908140000F22E4 /* JusoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JusoResponse.swift; sourceTree = "<group>"; };
 		88D81DAD269440AF00CEC31C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		88D81DB4269441D100CEC31C /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		88E970C12696E56B00BB5961 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		88F75FB1268D81A300A77D2F /* MonthlyPayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyPayTableViewCell.swift; sourceTree = "<group>"; };
 		88F75FB3268D81BF00A77D2F /* ManagementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementTableViewCell.swift; sourceTree = "<group>"; };
 		88F75FB5268D851A00A77D2F /* PhoneNumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTableViewCell.swift; sourceTree = "<group>"; };
@@ -408,6 +416,10 @@
 			children = (
 				8875F68426883E5C005B6BA5 /* ListViewController */,
 				88B0CA572686049C005DB9E8 /* Detail2TableViewController */,
+				88CADB7026968F2000885543 /* DetailViewController.swift */,
+				88CADB722696944500885543 /* MessageModel.swift */,
+				88CADB742696D13400885543 /* ChatViewController.swift */,
+				88E970C12696E56B00BB5961 /* MessageTableViewCell.swift */,
 			);
 			path = "First Tab ";
 			sourceTree = "<group>";
@@ -622,6 +634,7 @@
 				88C4E6B3268057CC00983D36 /* RegisterViewController.swift in Sources */,
 				88F75FB4268D81BF00A77D2F /* ManagementTableViewCell.swift in Sources */,
 				88F75FB6268D851A00A77D2F /* PhoneNumberTableViewCell.swift in Sources */,
+				88CADB7126968F2000885543 /* DetailViewController.swift in Sources */,
 				88AFE8032684AF3F00D2C0F7 /* ContentTableViewCell.swift in Sources */,
 				88C4E68E2680557A00983D36 /* AppDelegate.swift in Sources */,
 				88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */,
@@ -633,6 +646,7 @@
 				8870BD4C26907F1600E8FEDA /* LocationSearchTableViewCell.swift in Sources */,
 				88D81DB5269441D100CEC31C /* SuccessViewController.swift in Sources */,
 				88C383F2269168B90021C704 /* Place.swift in Sources */,
+				88CADB732696944500885543 /* MessageModel.swift in Sources */,
 				8895C6352686D9AA000DCD0A /* AddImageButtonCollectionViewCell.swift in Sources */,
 				88D069EA26908140000F22E4 /* JusoResponse.swift in Sources */,
 				887840042689A772004BCC5F /* DetailImageCell.swift in Sources */,
@@ -641,6 +655,8 @@
 				88AFE7FB2684AE7900D2C0F7 /* Upload2TableViewController.swift in Sources */,
 				88C4E6AD268057CC00983D36 /* ListTableViewController.swift in Sources */,
 				8895C6372686D9CF000DCD0A /* ImageCollectionViewCell.swift in Sources */,
+				88E970C22696E56B00BB5961 /* MessageTableViewCell.swift in Sources */,
+				88CADB752696D13400885543 /* ChatViewController.swift in Sources */,
 				886681932686055800C8FACC /* Content2TableViewCell.swift in Sources */,
 				881ED3DC2686DC970094177B /* Image2TableViewCell.swift in Sources */,
 				88B0CA522685F73A005DB9E8 /* SelectedCategory.swift in Sources */,

@@ -54,20 +54,23 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     private func kakaoMap(){
         
         let mapView = MTMapView(frame: view.frame)
+        mapView.delegate = self
         var marks : [MTMapPOIItem] = []
+        
+        var tagNum = 0
         for item in data{
             let mark = MTMapPOIItem()
             
 
             mark.itemName = item.location
-            print(item.x)
+
             mark.mapPoint = MTMapPoint(geoCoord: MTMapPointGeo(latitude: Double(item.y)!, longitude:Double(item.x)!))
             mark.markerType = .redPin
             mark.showAnimationType = .dropFromHeaven
             mark.draggable = false
-
+            mark.tag = tagNum
+            tagNum += 1
             marks.append(mark)
-            print(marks)
 
             let info = UIView(frame: CGRect(x: 0, y: 0, width: 180, height: 110))
             info.backgroundColor = .gray
@@ -77,22 +80,51 @@ class MapViewController: UIViewController, MTMapViewDelegate {
             let addressName = UITextView(frame: CGRect(x: 0, y: 50, width: 180, height: 40))
             addressName.text = item.price
             
-            let checkOutButton = UIButton(frame: CGRect(x: 0, y: 90, width: 180, height: 20))
+//            let checkOutButton = UIButton(frame: CGRect(x: 0, y: 90, width: 180, height: 20))
+            
+            
+            
+            let checkOutButton = UIButton(frame: CGRect(x: 0, y: 90, width: 180, height: 20), primaryAction:  UIAction(title: "Button Title", handler: { _ in
+                print("Button tapped!")
+                
+            }))
             checkOutButton.setTitle("매물 확인 하기", for: .normal)
-
+            checkOutButton.backgroundColor = .green
+            checkOutButton.isUserInteractionEnabled = true
             info.addSubview(placeName)
             info.addSubview(addressName)
             info.addSubview(checkOutButton)
-
-
+            
             mark.customCalloutBalloonView = info
-
             mapView.addPOIItems(marks)
         }
-
-        // 지도 view main view에 추가.
         view.addSubview(mapView)
     }
+    
+    func mapView(_ mapView: MTMapView!, touchedCalloutBalloonOf poiItem: MTMapPOIItem!) {
+        selectedPOI = poiItem.tag
+        performSegue(withIdentifier: "map to detail segue", sender: self)
+    }
+    
+    var selectedPOI = 0
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "map to detail segue"{
+            if let destinationVC = segue.destination as? DetailViewController{
+                destinationVC.itemImageName = data[selectedPOI].images
+                destinationVC.itemLocationName = data[selectedPOI].location
+                destinationVC.itemTitleName = data[selectedPOI].title
+                destinationVC.itemContentName = data[selectedPOI].content
+                destinationVC.itemPrice = data[selectedPOI].price
+                destinationVC.itemMonthlyPay = data[selectedPOI].monthlyPay
+                destinationVC.itemManagmentPay = data[selectedPOI].managementPrice
+            }
+        }
+    }
+    
+    
+
     
 
 }

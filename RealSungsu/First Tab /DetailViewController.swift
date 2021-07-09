@@ -1,15 +1,19 @@
 //
-//  Detail2TableViewController.swift
+//  DetailViewController.swift
 //  RealSungsu
 //
-//  Created by Yundong Lee on 2021/06/25.
+//  Created by Yundong Lee on 2021/07/08.
 //
 
 import UIKit
 import Firebase
 
-class Detail2TableViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    
+    
+    
+    @IBOutlet var tableView: UITableView!
     var itemImageName : UIImage?
     var itemLocationName : String?
     var itemTitleName : String?
@@ -17,7 +21,7 @@ class Detail2TableViewController: UITableViewController, UICollectionViewDataSou
     var itemManagmentPay : String?
     var itemMonthlyPay : String?
     var itemPrice : String?
-    
+    var postOwner : String?
     
     var images : [UIImage] = []{
         didSet{
@@ -25,16 +29,27 @@ class Detail2TableViewController: UITableViewController, UICollectionViewDataSou
         }
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.tableHeaderView = headerView()
         imageCollectionView?.reloadData()
-        loadDataFromStoreage()
+        loadDataFromStoreage()        
     }
     
     
+    @IBAction func chatButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "chat segue", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "chat segue"{
+            let destinationVC = segue.destination as! ChatViewController
+            destinationVC.postOwner = postOwner
+            destinationVC.postTitle = itemTitleName
+        }
+    }
     
     func loadDataFromStoreage(){
         if let title = itemTitleName{
@@ -64,11 +79,11 @@ class Detail2TableViewController: UITableViewController, UICollectionViewDataSou
     
     // MARK: - Table view data source
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "id cell", for: indexPath) as! IDTableViewCell
             cell.idLabel.text = itemLocationName
@@ -101,7 +116,7 @@ class Detail2TableViewController: UITableViewController, UICollectionViewDataSou
     
     
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
             return 150
         }else {
@@ -146,7 +161,7 @@ class Detail2TableViewController: UITableViewController, UICollectionViewDataSou
     }
 }
 
-extension Detail2TableViewController : UICollectionViewDelegateFlowLayout{
+extension DetailViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
@@ -158,6 +173,5 @@ extension Detail2TableViewController : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+
 }
-
-
