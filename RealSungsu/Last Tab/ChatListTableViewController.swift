@@ -12,11 +12,7 @@ class ChatListTableViewController: UITableViewController {
     
     let db = Firestore.firestore()
     
-    var messageCellData : [MessageCellData] = []{
-        didSet{
-            print(messageCellData)
-        }
-    }
+    var messageCellData : [MessageCellData] = []
     
     
     override func viewDidLoad() {
@@ -26,7 +22,7 @@ class ChatListTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageCellData.count
@@ -34,7 +30,7 @@ class ChatListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatListCell", for: indexPath) as! ChatListTableViewCell
-    
+        
         cell.cellTitle.text = messageCellData[indexPath.row].lastMessage
         cell.textOpponet.text = messageCellData[indexPath.row].opponent
         
@@ -72,14 +68,22 @@ class ChatListTableViewController: UITableViewController {
                                     if let e = error{
                                         print(e)
                                     }else{
-                                        if let snapShot2 = querySnapshot2?.documents, let body = snapShot2[snapShot2.count - 1]["body"] as? String{
-                                            let newCellData = MessageCellData(opponent: buyer, date: "0", lastMessage: body, title: doc.data()["title"] as! String)
-                                            self.messageCellData.append(newCellData)
-                                            
-                                            DispatchQueue.main.async {
-                                                self.tableView.reloadData()
+                                        
+                                        if let snapShot2 = querySnapshot2?.documents {
+                                            if snapShot2.count > 0{
+                                                if let body = snapShot2[snapShot2.count - 1]["body"] as? String{
+                                                    let newCellData = MessageCellData(opponent: buyer, date: "0", lastMessage: body, title: doc.data()["title"] as! String)
+                                                    self.messageCellData.append(newCellData)
+                                                    
+                                                    DispatchQueue.main.async {
+                                                        self.tableView.reloadData()
+                                                    }
+                                                }
                                             }
+                                            
                                         }
+                                        
+                                        
                                     }
                                 }
                             }
@@ -103,9 +107,14 @@ class ChatListTableViewController: UITableViewController {
                                     if let e = error{
                                         print(e)
                                     }else{
-                                        if let snapShot2 = querySnapshot2?.documents, let body = snapShot2[snapShot2.count - 1]["body"] as? String{
-                                            let newCellData = MessageCellData(opponent: seller, date: "0", lastMessage: body, title: doc.data()["title"] as! String)
-                                            self.messageCellData.append(newCellData)
+                                        if let snapShot2 = querySnapshot2?.documents {
+                                            if snapShot2.count > 0{
+                                                if let body = snapShot2[snapShot2.count - 1]["body"] as? String{
+                                                    let newCellData = MessageCellData(opponent: seller, date: "0", lastMessage: body, title: doc.data()["title"] as! String)
+                                                    self.messageCellData.append(newCellData)
+                                                }
+                                            }
+                                            
                                         }
                                         
                                         DispatchQueue.main.async {
@@ -123,18 +132,3 @@ class ChatListTableViewController: UITableViewController {
         }
     }
 }
-//if let snapShot = querySnapshot?.documents{
-//    for doc in snapShot{
-//        if let messageSender = doc["sender"] as? String, let body = doc["body"] as? String{
-//            let newMessage = MessageModel(sender: messageSender, body: body)
-//            self.messages.append(newMessage)
-//        }
-//
-//        DispatchQueue.main.async {
-//            self.messageTableView.reloadData()
-//        }
-//
-//    }
-//}
-
-// 상대방 이름, 날짜, 마지막 대화 글.

@@ -60,7 +60,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             db.collection("rooms").document(docName).collection("messages").addDocument(
                 data: [
                     "sender" : currentUser,
-                    "body" : messageBody
+                    "body" : messageBody,
+                    "timeSent" : Date().timeIntervalSince1970
                 ]
             ) { error in
                 if let e = error{
@@ -85,10 +86,16 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func loadMessages(){
-        db.collection("rooms").document(documentName!).collection("messages").getDocuments { querySnapshot, error in
+        
+        db.collection("rooms")
+            .document(documentName!)
+            .collection("messages")
+            .order(by: "timeSent")
+            .addSnapshotListener{ querySnapshot, error in
             if let e = error{
                 print(e)
             }else{
+                self.messages = []
                 if let snapShot = querySnapshot?.documents{
                     for doc in snapShot{
                         if let messageSender = doc["sender"] as? String, let body = doc["body"] as? String{
@@ -97,7 +104,9 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         }
                         
                         DispatchQueue.main.async {
+                            
                             self.messageTableView.reloadData()
+
                         }
                         
                     }
