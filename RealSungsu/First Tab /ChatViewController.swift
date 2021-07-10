@@ -28,24 +28,36 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var postTitle : String?
     
     
-    var collectionName : String?
+    var documentName : String?
     
     
     func getCollectionName(){
         if let messageBody = messageTextField.text, let currentUser = Auth.auth().currentUser?.email, let postUser = postOwner, let title = postTitle {
             
             if currentUser > postUser{
-                collectionName = currentUser + "&" + postUser + "&" + title
+                documentName = currentUser + "&" + postUser + "&" + title
             }else{
-                collectionName = postUser + "&" + currentUser + "&" + title
+                documentName = postUser + "&" + currentUser + "&" + title
             }
         }
     }
     
     @IBAction func sendButton(_ sender: UIButton) {
-        if let name = collectionName, let currentUser = Auth.auth().currentUser?.email, let messageBody = messageTextField.text{
+        if let title = postTitle, let currentUser = Auth.auth().currentUser?.email, let postUser = postOwner, let messageBody = messageTextField.text, let docName = documentName{
+            db.collection("rooms").document(docName).setData(
+                [
+                    "sender" : currentUser,
+                    "opponent" : postUser,
+                    "title" : title
+                ]) { e in
+                if let error = e{
+                    print(error)
+                }else{
+                    print("good")
+                }
+            }
             
-            db.collection(name).addDocument(
+            db.collection("rooms").document(docName).collection("messages").addDocument(
                 data: [
                     "sender" : currentUser,
                     "body" : messageBody
@@ -58,7 +70,6 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
-        
     }
     
     @IBOutlet var messageTableView: UITableView!
@@ -74,26 +85,24 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func loadMessages(){
-        if let colName = collectionName{
-            db.collection(colName).getDocuments { querySnapshot, error in
-                if let e = error{
-                    print(e)
-                }else{
-                    if let snapShot = querySnapshot?.documents{
-                        for doc in snapShot{
-                            if let messageSender = doc["sender"] as? String, let body = doc["body"] as? String{
-                                let newMessage = MessageModel(sender: messageSender, body: body)
-                                self.messages.append(newMessage)
-                            }
-                            
-                            DispatchQueue.main.async {
-                                self.messageTableView.reloadData()
-                            }
+        db.collection("rooms").document(documentName!).collection("messages").getDocuments { querySnapshot, error in
+            if let e = error{
+                print(e)
+            }else{
+                if let snapShot = querySnapshot?.documents{
+                    for doc in snapShot{
+                        if let messageSender = doc["sender"] as? String, let body = doc["body"] as? String{
+                            let newMessage = MessageModel(sender: messageSender, body: body)
+                            self.messages.append(newMessage)
                         }
+                        
+                        DispatchQueue.main.async {
+                            self.messageTableView.reloadData()
+                        }
+                        
                     }
                 }
             }
         }
-        
     }
 }

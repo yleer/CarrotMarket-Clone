@@ -14,6 +14,7 @@
 		8870BD4C26907F1600E8FEDA /* LocationSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8870BD4B26907F1600E8FEDA /* LocationSearchTableViewCell.swift */; };
 		887840042689A772004BCC5F /* DetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887840022689A772004BCC5F /* DetailImageCell.swift */; };
 		887840052689A772004BCC5F /* DetailImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 887840032689A772004BCC5F /* DetailImageCell.xib */; };
+		888915242698282100836B3B /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888915232698282100836B3B /* ChatListTableViewController.swift */; };
 		8895C6352686D9AA000DCD0A /* AddImageButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895C6342686D9A9000DCD0A /* AddImageButtonCollectionViewCell.swift */; };
 		8895C6372686D9CF000DCD0A /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895C6362686D9CF000DCD0A /* ImageCollectionViewCell.swift */; };
 		88AFE7FB2684AE7900D2C0F7 /* Upload2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */; };
@@ -25,6 +26,8 @@
 		88B0CA54268603BA005DB9E8 /* Detail2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */; };
 		88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */; };
 		88B3AA6326834657001D98C0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3AA6226834657001D98C0 /* LoadingViewController.swift */; };
+		88B4481F26996118002695C2 /* MessageCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4481E26996118002695C2 /* MessageCellData.swift */; };
+		88B4482126997DDA002695C2 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */; };
 		88C383C426914E9B0021C704 /* map_pinup_custom@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C3839F26914E9B0021C704 /* map_pinup_custom@3x.png */; };
 		88C383C526914E9B0021C704 /* map_pin_custom.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C383A026914E9B0021C704 /* map_pin_custom.png */; };
 		88C383C626914E9B0021C704 /* shadow_balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C383A126914E9B0021C704 /* shadow_balloon.png */; };
@@ -95,6 +98,7 @@
 		8870BD4B26907F1600E8FEDA /* LocationSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewCell.swift; sourceTree = "<group>"; };
 		887840022689A772004BCC5F /* DetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImageCell.swift; sourceTree = "<group>"; };
 		887840032689A772004BCC5F /* DetailImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailImageCell.xib; sourceTree = "<group>"; };
+		888915232698282100836B3B /* ChatListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
 		8895C6342686D9A9000DCD0A /* AddImageButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		8895C6362686D9CF000DCD0A /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upload2TableViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail2TableViewController.swift; sourceTree = "<group>"; };
 		88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTableViewCell.swift; sourceTree = "<group>"; };
 		88B3AA6226834657001D98C0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		88B4481E26996118002695C2 /* MessageCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellData.swift; sourceTree = "<group>"; };
+		88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		88C3839F26914E9B0021C704 /* map_pinup_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pinup_custom@3x.png"; sourceTree = "<group>"; };
 		88C383A026914E9B0021C704 /* map_pin_custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_custom.png; sourceTree = "<group>"; };
 		88C383A126914E9B0021C704 /* shadow_balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow_balloon.png; sourceTree = "<group>"; };
@@ -268,6 +274,16 @@
 			path = MapViewController;
 			sourceTree = "<group>";
 		};
+		88891522269827FE00836B3B /* Last Tab */ = {
+			isa = PBXGroup;
+			children = (
+				888915232698282100836B3B /* ChatListTableViewController.swift */,
+				88B4481E26996118002695C2 /* MessageCellData.swift */,
+				88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */,
+			);
+			path = "Last Tab";
+			sourceTree = "<group>";
+		};
 		8895C62E2686B83F000DCD0A /* Upload2TableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,7 +396,8 @@
 				88D81DB6269442CD00CEC31C /* LogIn part */,
 				88D81DB02694417500CEC31C /* First Tab  */,
 				88D81DB12694418400CEC31C /* Second Tab */,
-				88D81DB22694419600CEC31C /* Last Tab */,
+				88D81DB22694419600CEC31C /* Fourth Tap */,
+				88891522269827FE00836B3B /* Last Tab */,
 				88D81DAF2694410700CEC31C /* Data */,
 				88C4E6A12680563600983D36 /* Supporting Files */,
 				880C6E79268AF95700390CBA /* Constants.swift */,
@@ -432,14 +449,14 @@
 			path = "Second Tab";
 			sourceTree = "<group>";
 		};
-		88D81DB22694419600CEC31C /* Last Tab */ = {
+		88D81DB22694419600CEC31C /* Fourth Tap */ = {
 			isa = PBXGroup;
 			children = (
 				88D81DB3269441BF00CEC31C /* SuccessViewController */,
 				8895C62E2686B83F000DCD0A /* Upload2TableViewController */,
 				8870BD4A26907F0000E8FEDA /* LocationSearch View Controller */,
 			);
-			path = "Last Tab";
+			path = "Fourth Tap";
 			sourceTree = "<group>";
 		};
 		88D81DB3269441BF00CEC31C /* SuccessViewController */ = {
@@ -628,17 +645,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				88D81DAE269440AF00CEC31C /* MapViewController.swift in Sources */,
+				888915242698282100836B3B /* ChatListTableViewController.swift in Sources */,
 				88F75FB2268D81A300A77D2F /* MonthlyPayTableViewCell.swift in Sources */,
 				88AFE7FF2684AF2800D2C0F7 /* TitleTableViewCell.swift in Sources */,
 				88C4E6B2268057CC00983D36 /* ItemData.swift in Sources */,
 				88C4E6B3268057CC00983D36 /* RegisterViewController.swift in Sources */,
 				88F75FB4268D81BF00A77D2F /* ManagementTableViewCell.swift in Sources */,
+				88B4482126997DDA002695C2 /* ChatListTableViewCell.swift in Sources */,
 				88F75FB6268D851A00A77D2F /* PhoneNumberTableViewCell.swift in Sources */,
 				88CADB7126968F2000885543 /* DetailViewController.swift in Sources */,
 				88AFE8032684AF3F00D2C0F7 /* ContentTableViewCell.swift in Sources */,
 				88C4E68E2680557A00983D36 /* AppDelegate.swift in Sources */,
 				88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */,
 				880C6E7A268AF95700390CBA /* Constants.swift in Sources */,
+				88B4481F26996118002695C2 /* MessageCellData.swift in Sources */,
 				88C4E6B0268057CC00983D36 /* LogInViewController.swift in Sources */,
 				88AFE8012684AF3100D2C0F7 /* PriceTableViewCell.swift in Sources */,
 				88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */,

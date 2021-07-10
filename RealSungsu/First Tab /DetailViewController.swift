@@ -131,8 +131,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("called")
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "image collection cell", for: indexPath) as! DetailImageCell
         cell.detailImage.image = images[indexPath.row]
         cell.detailImage.contentMode = .scaleAspectFill
