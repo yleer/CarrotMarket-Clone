@@ -18,7 +18,19 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "message cell", for: indexPath) as! MessageTableViewCell
         cell.messageBody.text = messages[indexPath.row].body
-        //        cell.messageSender.t            보낸 사람 이름 처리 하기.
+        if let currentUser = Auth.auth().currentUser?.email{
+            if messages[indexPath.row].sender == currentUser{
+                cell.youAvatar.isHidden = true
+                cell.meAvatar.isHidden = false
+                cell.messageBackground.backgroundColor = UIColor(named: "BrandPurple")
+            }else{
+                cell.meAvatar.isHidden = true
+                cell.youAvatar.isHidden = false
+                cell.messageBackground.backgroundColor = UIColor(named: "BrandBlue")
+                
+            }
+        }
+        
         
         return cell
     }
@@ -71,6 +83,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
+        
+        messageTextField.text = ""
     }
     
     @IBOutlet var messageTableView: UITableView!
@@ -106,6 +120,9 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         DispatchQueue.main.async {
                             
                             self.messageTableView.reloadData()
+                            
+                            let index = IndexPath(row: self.messages.count - 1, section: 0)
+                            self.messageTableView.scrollToRow(at: index, at: .bottom, animated: false)
 
                         }
                         

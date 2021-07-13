@@ -14,8 +14,10 @@ class MessageTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    @IBOutlet var messageSender: UIImageView!
+    @IBOutlet var youAvatar: UIImageView!
+    @IBOutlet var meAvatar: UIImageView!
     @IBOutlet var messageBody: UILabel!
+    @IBOutlet var messageBackground: UIView!
     
 
 

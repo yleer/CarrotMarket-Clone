@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,7 @@
 		88B3AA6326834657001D98C0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3AA6226834657001D98C0 /* LoadingViewController.swift */; };
 		88B4481F26996118002695C2 /* MessageCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4481E26996118002695C2 /* MessageCellData.swift */; };
 		88B4482126997DDA002695C2 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */; };
+		88B44824269989BD002695C2 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 88B44823269989BD002695C2 /* IQKeyboardManagerSwift */; };
 		88C383C426914E9B0021C704 /* map_pinup_custom@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C3839F26914E9B0021C704 /* map_pinup_custom@3x.png */; };
 		88C383C526914E9B0021C704 /* map_pin_custom.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C383A026914E9B0021C704 /* map_pin_custom.png */; };
 		88C383C626914E9B0021C704 /* shadow_balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88C383A126914E9B0021C704 /* shadow_balloon.png */; };
@@ -193,6 +194,7 @@
 				88C383E9269150800021C704 /* libxml2.tbd in Frameworks */,
 				88C383E7269150780021C704 /* libc++.tbd in Frameworks */,
 				88C383E5269150700021C704 /* QuartzCore.framework in Frameworks */,
+				88B44824269989BD002695C2 /* IQKeyboardManagerSwift in Frameworks */,
 				88C383E3269150680021C704 /* CoreLocation.framework in Frameworks */,
 				88C383E1269150500021C704 /* OpenGLES.framework in Frameworks */,
 				88C383DF26914E9B0021C704 /* DaumMap.framework in Frameworks */,
@@ -519,6 +521,9 @@
 			dependencies = (
 			);
 			name = RealSungsu;
+			packageProductDependencies = (
+				88B44823269989BD002695C2 /* IQKeyboardManagerSwift */,
+			);
 			productName = RealSungsu;
 			productReference = 88C4E68A2680557A00983D36 /* RealSungsu.app */;
 			productType = "com.apple.product-type.application";
@@ -546,6 +551,9 @@
 				Base,
 			);
 			mainGroup = 88C4E6812680557A00983D36;
+			packageReferences = (
+				88B44822269989BD002695C2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 88C4E68B2680557A00983D36 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -897,6 +905,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		88B44822269989BD002695C2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		88B44823269989BD002695C2 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88B44822269989BD002695C2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 88C4E6822680557A00983D36 /* Project object */;
 }
