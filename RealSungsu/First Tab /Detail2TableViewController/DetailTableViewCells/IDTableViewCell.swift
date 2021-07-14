@@ -9,8 +9,9 @@ import UIKit
 
 class IDTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet var price: UILabel!
-    @IBOutlet var monthPay: UILabel!
-    @IBOutlet var managementPay: UILabel!
+    
+    
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet weak var locationName: UILabel!
+    
 }

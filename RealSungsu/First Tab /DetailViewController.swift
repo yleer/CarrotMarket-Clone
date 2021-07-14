@@ -86,12 +86,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "id cell", for: indexPath) as! IDTableViewCell
-            cell.idLabel.text = itemLocationName
-            cell.idLabel.numberOfLines = 0
-            cell.price.text = "보증금 :  \(String(describing: itemPrice!))"
-            cell.monthPay.text = "월세 :  \(String(describing: itemMonthlyPay!))"
-            cell.managementPay.text = "관리비 :  \( String(describing: itemManagmentPay!))"
-            
+            cell.locationName.text = itemLocationName
+            cell.locationName.numberOfLines = 0
+            cell.emailLabel.text = Auth.auth().currentUser?.email
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "content cell", for: indexPath) as! Content2TableViewCell
@@ -118,7 +115,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
-            return 150
+            return 80
         }else {
             return 500
         }

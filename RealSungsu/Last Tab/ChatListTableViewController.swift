@@ -34,6 +34,18 @@ class ChatListTableViewController: UITableViewController {
         cell.cellTitle.text = messageCellData[indexPath.row].lastMessage
         cell.textOpponet.text = messageCellData[indexPath.row].opponent
         
+        
+
+//        let date:Date = Date()
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = Date(timeIntervalSince1970: TimeInterval(messageCellData[indexPath.row].date)!)
+        let dateString = dateFormatter.string(from: date)
+        cell.dateLabel.text = dateString
+                
+    
+
         return cell
     }
     
@@ -68,11 +80,15 @@ class ChatListTableViewController: UITableViewController {
                                     if let e = error{
                                         print(e)
                                     }else{
-                                        
                                         if let snapShot2 = querySnapshot2?.documents {
                                             if snapShot2.count > 0{
                                                 if let body = snapShot2[snapShot2.count - 1]["body"] as? String{
-                                                    let newCellData = MessageCellData(opponent: buyer, date: "0", lastMessage: body, title: doc.data()["title"] as! String)
+                                                    let newCellData = MessageCellData(
+                                                        opponent: buyer,
+                                                        date: "0",
+                                                        lastMessage: body,
+                                                        title: doc.data()["title"] as! String
+                                                    )
                                                     self.messageCellData.append(newCellData)
                                                     
                                                     DispatchQueue.main.async {
@@ -80,10 +96,7 @@ class ChatListTableViewController: UITableViewController {
                                                     }
                                                 }
                                             }
-                                            
                                         }
-                                        
-                                        
                                     }
                                 }
                             }
@@ -92,7 +105,6 @@ class ChatListTableViewController: UITableViewController {
                     }
                 }
             }
-            
             
             // current user is the buyer
             db.collection("rooms").whereField("sender", isEqualTo: currentUser).getDocuments { querySnapshot, error in
@@ -103,14 +115,19 @@ class ChatListTableViewController: UITableViewController {
                         for doc in snapShot{
                             if let seller = doc["opponent"] as? String{
                                 doc.reference.collection("messages").getDocuments { querySnapshot2, error in
-                                    
                                     if let e = error{
                                         print(e)
                                     }else{
                                         if let snapShot2 = querySnapshot2?.documents {
                                             if snapShot2.count > 0{
-                                                if let body = snapShot2[snapShot2.count - 1]["body"] as? String{
-                                                    let newCellData = MessageCellData(opponent: seller, date: "0", lastMessage: body, title: doc.data()["title"] as! String)
+                                                if let body = snapShot2[snapShot2.count - 1]["body"] as? String,
+                                                   let time = snapShot2[snapShot2.count - 1]["timeSent"] as? Double{
+                                                    let newCellData = MessageCellData(
+                                                        opponent: seller,
+                                                        date: String(time),
+                                                        lastMessage: body,
+                                                        title: doc.data()["title"] as! String
+                                                    )
                                                     self.messageCellData.append(newCellData)
                                                 }
                                             }

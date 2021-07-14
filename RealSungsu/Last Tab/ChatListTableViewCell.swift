@@ -16,4 +16,5 @@ class ChatListTableViewCell: UITableViewCell {
 
     @IBOutlet var cellTitle: UILabel!
     @IBOutlet var textOpponet: UILabel!
+    @IBOutlet var dateLabel: UILabel!
 }
