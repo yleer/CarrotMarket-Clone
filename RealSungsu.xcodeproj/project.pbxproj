@@ -23,7 +23,6 @@
 		88AFE8032684AF3F00D2C0F7 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE8022684AF3F00D2C0F7 /* ContentTableViewCell.swift */; };
 		88AFE8052684AF4F00D2C0F7 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */; };
 		88B0CA522685F73A005DB9E8 /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */; };
-		88B0CA54268603BA005DB9E8 /* Detail2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */; };
 		88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */; };
 		88B4481F26996118002695C2 /* MessageCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4481E26996118002695C2 /* MessageCellData.swift */; };
 		88B4482126997DDA002695C2 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */; };
@@ -107,7 +106,6 @@
 		88AFE8022684AF3F00D2C0F7 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
-		88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail2TableViewController.swift; sourceTree = "<group>"; };
 		88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTableViewCell.swift; sourceTree = "<group>"; };
 		88B4481E26996118002695C2 /* MessageCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellData.swift; sourceTree = "<group>"; };
 		88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
@@ -302,13 +300,13 @@
 			path = "image Collection View ";
 			sourceTree = "<group>";
 		};
-		88B0CA572686049C005DB9E8 /* Detail2TableViewController */ = {
+		88B0CA572686049C005DB9E8 /* DetailTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */,
+				88CADB7026968F2000885543 /* DetailViewController.swift */,
 				887E043A2693FCE6002C2B61 /* DetailTableViewCells */,
 			);
-			path = Detail2TableViewController;
+			path = DetailTableViewController;
 			sourceTree = "<group>";
 		};
 		88C3839D26914E9B0021C704 /* DaumMap.embeddedframework */ = {
@@ -431,8 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				8875F68426883E5C005B6BA5 /* ListViewController */,
-				88B0CA572686049C005DB9E8 /* Detail2TableViewController */,
-				88CADB7026968F2000885543 /* DetailViewController.swift */,
+				88B0CA572686049C005DB9E8 /* DetailTableViewController */,
 				88CADB722696944500885543 /* MessageModel.swift */,
 				88CADB742696D13400885543 /* ChatViewController.swift */,
 				88E970C12696E56B00BB5961 /* MessageTableViewCell.swift */,
@@ -684,7 +681,6 @@
 				886681932686055800C8FACC /* Content2TableViewCell.swift in Sources */,
 				881ED3DC2686DC970094177B /* Image2TableViewCell.swift in Sources */,
 				88B0CA522685F73A005DB9E8 /* SelectedCategory.swift in Sources */,
-				88B0CA54268603BA005DB9E8 /* Detail2TableViewController.swift in Sources */,
 				88AFE8052684AF4F00D2C0F7 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
