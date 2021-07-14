@@ -25,7 +25,6 @@
 		88B0CA522685F73A005DB9E8 /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */; };
 		88B0CA54268603BA005DB9E8 /* Detail2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */; };
 		88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */; };
-		88B3AA6326834657001D98C0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3AA6226834657001D98C0 /* LoadingViewController.swift */; };
 		88B4481F26996118002695C2 /* MessageCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4481E26996118002695C2 /* MessageCellData.swift */; };
 		88B4482126997DDA002695C2 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */; };
 		88B44824269989BD002695C2 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 88B44823269989BD002695C2 /* IQKeyboardManagerSwift */; };
@@ -110,7 +109,6 @@
 		88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
 		88B0CA53268603BA005DB9E8 /* Detail2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail2TableViewController.swift; sourceTree = "<group>"; };
 		88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTableViewCell.swift; sourceTree = "<group>"; };
-		88B3AA6226834657001D98C0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		88B4481E26996118002695C2 /* MessageCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellData.swift; sourceTree = "<group>"; };
 		88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		88C3839F26914E9B0021C704 /* map_pinup_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pinup_custom@3x.png"; sourceTree = "<group>"; };
@@ -234,7 +232,6 @@
 		8875F68426883E5C005B6BA5 /* ListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				88B3AA6226834657001D98C0 /* LoadingViewController.swift */,
 				88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */,
 				88C4E6A5268057C400983D36 /* ListTableViewController.swift */,
 			);
@@ -670,7 +667,6 @@
 				88C4E6B0268057CC00983D36 /* LogInViewController.swift in Sources */,
 				88AFE8012684AF3100D2C0F7 /* PriceTableViewCell.swift in Sources */,
 				88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */,
-				88B3AA6326834657001D98C0 /* LoadingViewController.swift in Sources */,
 				8870BD4C26907F1600E8FEDA /* LocationSearchTableViewCell.swift in Sources */,
 				88D81DB5269441D100CEC31C /* SuccessViewController.swift in Sources */,
 				88C383F2269168B90021C704 /* Place.swift in Sources */,

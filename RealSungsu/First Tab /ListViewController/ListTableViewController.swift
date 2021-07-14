@@ -32,12 +32,10 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLoading()
         loadData()
-        
         configureHeaderView()
     }
     
@@ -105,8 +103,11 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! ItemTableViewCell
         
         cell.itemImage.image = data[indexPath.row].images
+        cell.itemImage.contentMode = .scaleAspectFill
+        cell.itemImage.layer.cornerRadius = 10
         cell.title.text = data[indexPath.row].title
         cell.place.text = data[indexPath.row].location
+        cell.priceLabel.text = data[indexPath.row].price + " 원"
         
         return cell
         
