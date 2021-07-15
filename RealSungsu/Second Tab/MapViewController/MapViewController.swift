@@ -118,7 +118,7 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "map to detail segue"{
             if let destinationVC = segue.destination as? DetailViewController{
-                destinationVC.itemImageName = data[selectedPOI].images
+                destinationVC.itemImageName = data[selectedPOI].itemThumnail
                 destinationVC.itemLocationName = data[selectedPOI].location
                 destinationVC.itemTitleName = data[selectedPOI].title
                 destinationVC.itemContentName = data[selectedPOI].content

@@ -44,7 +44,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func getCollectionName(){
-        if let messageBody = messageTextField.text, let currentUser = Auth.auth().currentUser?.email, let postUser = postOwner, let title = postTitle {
+        if let currentUser = Auth.auth().currentUser?.email, let postUser = postOwner, let title = postTitle {
             
             if currentUser > postUser{
                 documentName = currentUser + "&" + postUser + "&" + title
@@ -80,7 +80,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 if let e = error{
                     print(e)
                 }else{
-                    print("good")
+                    print("sent")
                 }
             }
         }
@@ -92,11 +92,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var messageTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         messageTableView.dataSource = self
         messageTableView.delegate = self
-        
-        
         loadMessages()
     }
     

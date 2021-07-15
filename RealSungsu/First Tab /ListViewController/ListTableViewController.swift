@@ -37,8 +37,6 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         configureLoading()
         loadData()
         configureHeaderView()
-        
-        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +53,8 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
             if let e = error{
                 print(e)
             }else{
+                
+                // document들 가져와서 data에 추가.
                 if let document = querySnapshot?.documents{
                     for doc in document{
                         self.data.append(
@@ -73,7 +73,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                         )
                     }
                 }
-                
+                // data들에 있는 첫번째 이미지 가져와서 썸네일로 사용.
                 for index in 0..<self.data.count{
                     let restUrl = "photos/\(self.data[index].title)/1.jpeg"
                     let storageRef = Storage.storage().reference(withPath: restUrl)
@@ -83,14 +83,16 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                             return
                         }
                         if let jpegData = imageData, let image = UIImage(data: jpegData) {
-                            self.data[index].images = image
+                            self.data[index].itemThumnail = image
                             let Ind = IndexPath(row: index, section: 0)
                             self.tableView.reloadRows(at: [Ind], with: .automatic)
                         }
                     }
                 }
+                
                 self.tableView.reloadData()
                 self.loadingView.removeFromSuperview()
+        
             }
         }
     }
@@ -109,7 +111,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! ItemTableViewCell
         
-        cell.itemImage.image = data[indexPath.row].images
+        cell.itemImage.image = data[indexPath.row].itemThumnail
         cell.itemImage.contentMode = .scaleAspectFill
         cell.itemImage.layer.cornerRadius = 10
         cell.title.text = data[indexPath.row].title
@@ -134,7 +136,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "show detail"{
             if let destinationVC = segue.destination as? DetailViewController{
-                destinationVC.itemImageName = data[selectIndex].images
+                destinationVC.itemImageName = data[selectIndex].itemThumnail
                 destinationVC.itemLocationName = data[selectIndex].location
                 destinationVC.itemTitleName = data[selectIndex].title
                 destinationVC.itemContentName = data[selectIndex].content
@@ -211,8 +213,6 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         livingPeriod.translatesAutoresizingMaskIntoConstraints = false
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         
         priceRangeTextField.placeholder = "가격을 입력해주세요"
         livingPeriod.placeholder = "얼마나 살거에요?"

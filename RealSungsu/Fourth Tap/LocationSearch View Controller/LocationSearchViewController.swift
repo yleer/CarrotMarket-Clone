@@ -10,7 +10,6 @@ import Alamofire
 
 class LocationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfItem
     }
@@ -28,7 +27,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedLocation?.loaction = response.results.juso[indexPath.row].roadAddr
-        print(selectedLocation?.loaction)
+//        print(selectedLocation?.loaction)
         
         urlPart()
         navigationController?.popViewController(animated: true)

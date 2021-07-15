@@ -10,7 +10,6 @@ import Foundation
 struct documentResponse :Codable{
     var documents : [Document]
     var meta : Meta!
-    
 }
 
 struct Document : Codable {

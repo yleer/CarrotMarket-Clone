@@ -763,24 +763,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색할 주소를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ygb-2D-t1e">
-                                <rect key="frame" x="0.0" y="83" width="349" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="주소 검색 설명 칸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFf-gN-WR9">
-                                <rect key="frame" x="0.0" y="132" width="414" height="149"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소 검색 설명 칸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFf-gN-WR9">
+                                <rect key="frame" x="8" y="131" width="414" height="105"/>
                                 <color key="backgroundColor" red="0.1176470588" green="0.51764705879999995" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zdy-9R-leK">
-                                <rect key="frame" x="0.0" y="302" width="414" height="547"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zdy-9R-leK">
+                                <rect key="frame" x="0.0" y="244" width="414" height="569"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="location result cell" rowHeight="99" id="fkb-Mc-iDx" customClass="LocationSearchTableViewCell" customModule="RealSungsu" customModuleProvider="target">
@@ -790,35 +781,44 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="도로명 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fra-Fq-VCO">
-                                                    <rect key="frame" x="20" y="21" width="58" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="도로명 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fra-Fq-VCO">
+                                                    <rect key="frame" x="28" y="19" width="57.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="지번 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLp-Bk-IeF">
-                                                    <rect key="frame" x="20" y="61" width="39" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지번 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLp-Bk-IeF">
+                                                    <rect key="frame" x="28" y="47.5" width="57.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mml-zs-GVK">
-                                                    <rect key="frame" x="98" y="21" width="296" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mml-zs-GVK">
+                                                    <rect key="frame" x="93.5" y="19" width="292.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-G4-2C4">
-                                                    <rect key="frame" x="98" y="60" width="296" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-G4-2C4">
+                                                    <rect key="frame" x="93.5" y="47.5" width="41.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bLp-Bk-IeF" firstAttribute="leading" secondItem="fra-Fq-VCO" secondAttribute="leading" id="3xc-Sz-KxK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mml-zs-GVK" secondAttribute="trailing" constant="8" id="5SN-c1-w4f"/>
+                                                <constraint firstItem="fra-Fq-VCO" firstAttribute="top" secondItem="c8x-uW-mmS" secondAttribute="topMargin" constant="8" id="8Ui-ib-hWk"/>
+                                                <constraint firstItem="mml-zs-GVK" firstAttribute="leading" secondItem="fra-Fq-VCO" secondAttribute="trailing" constant="8" id="9So-8h-9NC"/>
+                                                <constraint firstItem="bLp-Bk-IeF" firstAttribute="trailing" secondItem="fra-Fq-VCO" secondAttribute="trailing" id="ReN-5o-dZL"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gbY-G4-2C4" secondAttribute="trailing" constant="20" symbolic="YES" id="UAB-PX-Gxd"/>
+                                                <constraint firstItem="mml-zs-GVK" firstAttribute="centerY" secondItem="fra-Fq-VCO" secondAttribute="centerY" id="oWg-08-rXI"/>
+                                                <constraint firstItem="fra-Fq-VCO" firstAttribute="leading" secondItem="c8x-uW-mmS" secondAttribute="leadingMargin" constant="8" id="qNj-ZR-26I"/>
+                                                <constraint firstItem="gbY-G4-2C4" firstAttribute="leading" secondItem="mml-zs-GVK" secondAttribute="leading" id="sKB-Ms-GN5"/>
+                                                <constraint firstItem="bLp-Bk-IeF" firstAttribute="top" secondItem="fra-Fq-VCO" secondAttribute="bottom" constant="8" id="xKe-2i-kho"/>
+                                                <constraint firstItem="gbY-G4-2C4" firstAttribute="centerY" secondItem="bLp-Bk-IeF" secondAttribute="centerY" id="yPQ-eQ-ECy"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="doroLabel" destination="mml-zs-GVK" id="dmh-0X-hfN"/>
@@ -827,17 +827,44 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXO-pH-fuG">
-                                <rect key="frame" x="357" y="83" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="searchButton:" destination="men-rQ-0TA" eventType="touchUpInside" id="rtU-iV-hDD"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xp2-BC-O9w">
+                                <rect key="frame" x="8" y="88" width="398" height="35"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색할 주소를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ygb-2D-t1e">
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="35"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXO-pH-fuG">
+                                        <rect key="frame" x="333" y="0.0" width="65" height="35"/>
+                                        <state key="normal" title="검색"/>
+                                        <connections>
+                                            <action selector="searchButton:" destination="men-rQ-0TA" eventType="touchUpInside" id="rtU-iV-hDD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="2x6-4S-DtU"/>
+                                    <constraint firstItem="hXO-pH-fuG" firstAttribute="width" secondItem="ygb-2D-t1e" secondAttribute="width" multiplier="0.2" id="aUw-4B-4uo"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CMR-KT-9Ea"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Xp2-BC-O9w" firstAttribute="leading" secondItem="CMR-KT-9Ea" secondAttribute="leading" constant="8" id="1Fb-L9-3GA"/>
+                            <constraint firstItem="Xp2-BC-O9w" firstAttribute="top" secondItem="CMR-KT-9Ea" secondAttribute="top" id="3n6-kc-PUg"/>
+                            <constraint firstItem="Zdy-9R-leK" firstAttribute="leading" secondItem="CMR-KT-9Ea" secondAttribute="leading" id="5ya-8B-Ryu"/>
+                            <constraint firstItem="HFf-gN-WR9" firstAttribute="leading" secondItem="CMR-KT-9Ea" secondAttribute="leading" constant="8" id="Ehx-gp-WeN"/>
+                            <constraint firstItem="HFf-gN-WR9" firstAttribute="trailing" secondItem="CMR-KT-9Ea" secondAttribute="trailing" constant="8" id="Ykb-VC-OQo"/>
+                            <constraint firstItem="Zdy-9R-leK" firstAttribute="trailing" secondItem="CMR-KT-9Ea" secondAttribute="trailing" id="cVk-uO-MKb"/>
+                            <constraint firstItem="Zdy-9R-leK" firstAttribute="top" secondItem="HFf-gN-WR9" secondAttribute="bottom" constant="8" id="d90-9v-zmC"/>
+                            <constraint firstItem="HFf-gN-WR9" firstAttribute="height" secondItem="Xp2-BC-O9w" secondAttribute="height" multiplier="3" id="eMe-Zb-LLc"/>
+                            <constraint firstItem="CMR-KT-9Ea" firstAttribute="trailing" secondItem="Xp2-BC-O9w" secondAttribute="trailing" constant="8" id="i8k-zD-U12"/>
+                            <constraint firstItem="Zdy-9R-leK" firstAttribute="bottom" secondItem="CMR-KT-9Ea" secondAttribute="bottom" id="kVQ-Pa-Fbr"/>
+                            <constraint firstItem="HFf-gN-WR9" firstAttribute="top" secondItem="Xp2-BC-O9w" secondAttribute="bottom" constant="8" id="tiS-Qj-WGV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9vH-wB-qeu"/>
                     <connections>
@@ -847,7 +874,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ9-ny-JQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6104" y="2035"/>
+            <point key="canvasLocation" x="6102.898550724638" y="2034.375"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="yTH-bX-fdY">
