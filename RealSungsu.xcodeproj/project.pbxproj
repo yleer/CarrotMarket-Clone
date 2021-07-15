@@ -304,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				88CADB7026968F2000885543 /* DetailViewController.swift */,
+				88CADB742696D13400885543 /* ChatViewController.swift */,
 				887E043A2693FCE6002C2B61 /* DetailTableViewCells */,
 			);
 			path = DetailTableViewController;
@@ -431,7 +432,6 @@
 				8875F68426883E5C005B6BA5 /* ListViewController */,
 				88B0CA572686049C005DB9E8 /* DetailTableViewController */,
 				88CADB722696944500885543 /* MessageModel.swift */,
-				88CADB742696D13400885543 /* ChatViewController.swift */,
 				88E970C12696E56B00BB5961 /* MessageTableViewCell.swift */,
 			);
 			path = "First Tab ";

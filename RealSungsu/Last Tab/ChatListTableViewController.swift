@@ -17,9 +17,14 @@ class ChatListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadRooms()
+//        loadRooms()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadRooms()
+    }
     // MARK: - Table view data source
     
     
@@ -65,6 +70,7 @@ class ChatListTableViewController: UITableViewController {
     }
     
     private func loadRooms(){
+        messageCellData = []
         if let currentUser = Auth.auth().currentUser?.email{
             
             // current user is the seller

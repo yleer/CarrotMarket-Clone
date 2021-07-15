@@ -56,6 +56,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func sendButton(_ sender: UIButton) {
         if let title = postTitle, let currentUser = Auth.auth().currentUser?.email, let postUser = postOwner, let messageBody = messageTextField.text, let docName = documentName{
+            
             db.collection("rooms").document(docName).setData(
                 [
                     "sender" : currentUser,
@@ -95,11 +96,12 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         messageTableView.dataSource = self
         messageTableView.delegate = self
         
-        getCollectionName()
+        
         loadMessages()
     }
     
     private func loadMessages(){
+        getCollectionName()
         
         db.collection("rooms")
             .document(documentName!)

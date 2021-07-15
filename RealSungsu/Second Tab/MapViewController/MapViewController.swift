@@ -34,7 +34,8 @@ class MapViewController: UIViewController, MTMapViewDelegate {
                                 y : doc.data()["y"] as! String,
                                 price : doc.data()["price"] as! String,
                                 monthlyPay: doc.data()["monthlyPay"] as! String,
-                                managementPrice: doc.data()["managmentPay"] as! String
+                                managementPrice: doc.data()["managmentPay"] as! String,
+                                postUser: doc.data()["emai"] as! String
                             )
                         )
                     
@@ -47,8 +48,13 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        tabBarController?.tabBar.isHidden = false
         loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     private func kakaoMap(){
@@ -119,6 +125,7 @@ class MapViewController: UIViewController, MTMapViewDelegate {
                 destinationVC.itemPrice = data[selectedPOI].price
                 destinationVC.itemMonthlyPay = data[selectedPOI].monthlyPay
                 destinationVC.itemManagmentPay = data[selectedPOI].managementPrice
+                destinationVC.postOwner = data[selectedPOI].postUser
             }
         }
     }
