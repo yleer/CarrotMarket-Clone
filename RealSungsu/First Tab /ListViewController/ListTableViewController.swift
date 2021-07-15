@@ -49,7 +49,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     func loadData() {
         view.addSubview(loadingView)
         data = []
-        db.collection("realestate data").getDocuments { querySnapshot, error in
+        db.collection("realestate data").order(by: "date", descending: true).getDocuments { querySnapshot, error in
             if let e = error{
                 print(e)
             }else{
@@ -73,26 +73,30 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                         )
                     }
                 }
-                // data들에 있는 첫번째 이미지 가져와서 썸네일로 사용.
-                for index in 0..<self.data.count{
-                    let restUrl = "photos/\(self.data[index].title)/1.jpeg"
-                    let storageRef = Storage.storage().reference(withPath: restUrl)
-                    storageRef.getData(maxSize: Int64(Constants.maxSize)) { imageData, error in
-                        if let e = error{
-                            print(e)
-                            return
-                        }
-                        if let jpegData = imageData, let image = UIImage(data: jpegData) {
-                            self.data[index].itemThumnail = image
-                            let Ind = IndexPath(row: index, section: 0)
-                            self.tableView.reloadRows(at: [Ind], with: .automatic)
-                        }
-                    }
-                }
-                
+                self.loadThumnailImages()
                 self.tableView.reloadData()
                 self.loadingView.removeFromSuperview()
-        
+                
+            }
+        }
+    }
+    
+    // data들에 있는 첫번째 이미지 가져와서 썸네일로 사용.
+    func loadThumnailImages(){
+        for index in 0..<self.data.count{
+            let restUrl = "photos/\(self.data[index].title)/1.jpeg"
+            let storageRef = Storage.storage().reference(withPath: restUrl)
+            storageRef.getData(maxSize: Int64(Constants.maxSize)) { imageData, error in
+                if let e = error{
+                    print(e)
+                    return
+                }
+                if let jpegData = imageData, let image = UIImage(data: jpegData) {
+                    
+                    self.data[index].itemThumnail = image
+                    let Ind = IndexPath(row: index, section: 0)
+                    self.tableView.reloadRows(at: [Ind], with: .automatic)
+                }
             }
         }
     }

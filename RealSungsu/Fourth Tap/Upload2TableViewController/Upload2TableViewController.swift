@@ -241,12 +241,6 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
         return CGSize(width: 60, height: 60)
     }
     
-    func getCurrentDate() -> String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let current_date_string = formatter.string(from: Date())
-        return current_date_string
-    }
     
     // MARK: save data to storage.
     let db = Firestore.firestore()
@@ -284,7 +278,7 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
                     "location" : selectedLocation.loaction, // location == category
                     "price" : price,
                     "content" : content,
-                    "date" : getCurrentDate(),
+                    "date" : Date().timeIntervalSince1970,
                     "phoneNumb" : phoneNumb,
                     "monthlyPay" : monthlyPay,
                     "managmentPay" : managmentPay,
