@@ -212,33 +212,39 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if indexPath.row == 0 {
+
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionView add Button", for: indexPath) as! AddImageButtonCollectionViewCell
             
             cell.addImageButton.setTitle("+", for: .normal)
             cell.addImageButton.addTarget(self, action: #selector(imagePickerPopUp), for: .touchUpInside)
             
+            for sub in collectionView.subviews{
+                if sub.backgroundColor == .red{
+                    sub.removeFromSuperview()
+                }
+            }
+            
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection view image cell", for: indexPath) as! ImageCollectionViewCell
             cell.imageCollectionViewCell.image = houseImages[indexPath.row - 1]
-//            cell.imageCollectionViewCell.image.cont
+            cell.imageCollectionViewCell.contentMode = .scaleAspectFill
             
-            let deleteButton = UIButton(frame: CGRect(x: cell.bounds.maxX, y: 0, width: 30, height: 30))
+            let deleteButton = UIButton(frame: CGRect(x: cell.frame.maxX - 15, y: 15, width: 15, height: 15))
             
             deleteButton.setTitle("X", for: .normal)
             deleteButton.backgroundColor = .red
-            deleteButton.addTarget(self, action: #selector(tapToDeleteImage), for: .touchUpInside)
+            deleteButton.tag = indexPath.row - 1
+            collectionView.addSubview(deleteButton)
             
-            cell.addSubview(deleteButton)
+            deleteButton.addTarget(self, action: #selector(tapToDeleteImage), for: .touchUpInside)
             return cell
         }
-        
     }
     
-    @objc func tapToDeleteImage(){
-        print("hello")
+    @objc func tapToDeleteImage(_ button : UIButton){
+        houseImages.remove(at: button.tag)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -301,3 +307,4 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
         }
     }
 }
+
