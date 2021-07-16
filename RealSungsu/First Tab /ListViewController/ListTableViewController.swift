@@ -42,7 +42,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         floaty = Floaty(frame: CGRect(x: view.bounds.width - 70, y: view.bounds.height - 200 - navigationController!.navigationBar.frame.height, width: 50, height: 50 ))
         floaty.addItem(title : "동네홍보")
         floaty.addItem(title: "중고거래") { item in
-            performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+            self.performSegue(withIdentifier: "upload segue", sender: self)
         }
         self.view.addSubview(floaty)
         
@@ -50,6 +50,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadData()
         tabBarController?.tabBar.isHidden = false
     }
     

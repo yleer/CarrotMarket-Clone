@@ -329,7 +329,6 @@
                     <connections>
                         <segue destination="wan-Um-D1a" kind="relationship" relationship="viewControllers" id="gpz-Tl-vDf"/>
                         <segue destination="CVg-Fr-VJx" kind="relationship" relationship="viewControllers" id="ooc-wK-qhW"/>
-                        <segue destination="5Xg-nl-kfh" kind="relationship" relationship="viewControllers" id="DeR-xU-aU3"/>
                         <segue destination="tcc-zY-iP6" kind="relationship" relationship="viewControllers" id="Fof-za-9z6"/>
                     </connections>
                 </tabBarController>
@@ -355,21 +354,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nfr-Xk-c9e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5096" y="-60"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="FCI-7f-1qh">
-            <objects>
-                <viewController id="oPR-g7-d3c" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="V7q-b3-SYO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="mCU-pd-pX4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gfz-N8-mLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5089" y="-1604"/>
         </scene>
         <!--List Table View Controller-->
         <scene sceneID="6yc-9M-ATD">
@@ -456,11 +440,12 @@
                     </navigationItem>
                     <connections>
                         <segue destination="kij-7N-2fA" kind="show" identifier="show detail" id="Fxq-kI-tuU"/>
+                        <segue destination="dpr-MB-ZJb" kind="show" identifier="upload segue" id="3sc-Xz-JW5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J94-wn-P93" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5097" y="-917"/>
+            <point key="canvasLocation" x="5096" y="-943"/>
         </scene>
         <!--Upload2 Table View Controller-->
         <scene sceneID="ClQ-rE-tvp">
@@ -736,7 +721,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcr-Rf-9yr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5102.898550724638" y="2034.375"/>
+            <point key="canvasLocation" x="6484" y="-2837"/>
         </scene>
         <!--Success View Controller-->
         <scene sceneID="0Zy-rL-CRa">
@@ -768,7 +753,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3u-Uq-qbb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5104" y="2983"/>
+            <point key="canvasLocation" x="6843" y="-1762"/>
         </scene>
         <!--Location Search View Controller-->
         <scene sceneID="Nli-rH-gAr">
@@ -889,7 +874,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZ9-ny-JQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6102.898550724638" y="2034.375"/>
+            <point key="canvasLocation" x="7484" y="-2837"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="yTH-bX-fdY">
@@ -1211,25 +1196,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlH-ua-uzb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-60"/>
-        </scene>
-        <!--매물등록-->
-        <scene sceneID="1b0-8I-cLw">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Xg-nl-kfh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="매물등록" id="qF2-pc-RFK"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="byO-BN-fvW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="dpr-MB-ZJb" kind="relationship" relationship="rootViewController" id="LIt-Ff-eaG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Phi-Li-EfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4088" y="2035"/>
         </scene>
         <!--검색으로 찾기-->
         <scene sceneID="uMb-vg-7hy">
