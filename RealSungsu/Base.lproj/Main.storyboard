@@ -556,32 +556,8 @@
                                     <outlet property="titleTextField" destination="XiN-dK-KIA" id="pdw-An-JO7"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="phoneNumber cell" rowHeight="76" id="Cg1-D3-Nuq" customClass="PhoneNumberTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="230.5" width="414" height="76"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cg1-D3-Nuq" id="6fO-z7-yRP">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="전화번호 입력하시오" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w8Y-JE-xyH">
-                                            <rect key="frame" x="20" y="11" width="374" height="54"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                        </textField>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="w8Y-JE-xyH" firstAttribute="leading" secondItem="6fO-z7-yRP" secondAttribute="leadingMargin" id="00r-k3-VkJ"/>
-                                        <constraint firstItem="w8Y-JE-xyH" firstAttribute="top" secondItem="6fO-z7-yRP" secondAttribute="topMargin" id="KZE-a6-dFA"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="w8Y-JE-xyH" secondAttribute="bottom" id="Zxl-HI-PsW"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="w8Y-JE-xyH" secondAttribute="trailing" id="wye-1M-yHt"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="phoneNumberTextField" destination="w8Y-JE-xyH" id="hAC-uj-Z77"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="location cell" rowHeight="60" id="Hsf-l4-8PB" customClass="CategoryTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="306.5" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="230.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hsf-l4-8PB" id="xr2-y7-LB4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -604,7 +580,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="price cell" rowHeight="94" id="7hy-N2-hWa" customClass="PriceTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="366.5" width="414" height="94"/>
+                                <rect key="frame" x="0.0" y="290.5" width="414" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7hy-N2-hWa" id="gzA-5S-jXi">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
@@ -627,56 +603,8 @@
                                     <outlet property="priceTextField" destination="0mJ-2e-f3D" id="bVA-DA-czI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="monthly pay cell" rowHeight="89" id="1pK-a6-noL" customClass="MonthlyPayTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="460.5" width="414" height="89"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1pK-a6-noL" id="m8X-zk-L0D">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="월세" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvq-lo-LA0">
-                                            <rect key="frame" x="20" y="11" width="374" height="67"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                        </textField>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="hvq-lo-LA0" firstAttribute="top" secondItem="m8X-zk-L0D" secondAttribute="topMargin" id="D1E-09-GdK"/>
-                                        <constraint firstItem="hvq-lo-LA0" firstAttribute="leading" secondItem="m8X-zk-L0D" secondAttribute="leadingMargin" id="juF-Ja-j17"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="hvq-lo-LA0" secondAttribute="trailing" id="trg-Vv-2TE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="hvq-lo-LA0" secondAttribute="bottom" id="xVh-FG-Ebq"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="monthlyPriceTextField" destination="hvq-lo-LA0" id="J8t-sA-vW2"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="management cell" rowHeight="92" id="Ipm-6N-oep" customClass="ManagementTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="549.5" width="414" height="92"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ipm-6N-oep" id="QKO-xC-1Ei">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="관리비" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ubS-o9-MZe">
-                                            <rect key="frame" x="20" y="11" width="374" height="70"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                        </textField>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ubS-o9-MZe" secondAttribute="trailing" id="BRJ-j0-iLb"/>
-                                        <constraint firstItem="ubS-o9-MZe" firstAttribute="leading" secondItem="QKO-xC-1Ei" secondAttribute="leadingMargin" id="e5S-6g-Ka1"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ubS-o9-MZe" secondAttribute="bottom" id="lNN-Vg-MPR"/>
-                                        <constraint firstItem="ubS-o9-MZe" firstAttribute="top" secondItem="QKO-xC-1Ei" secondAttribute="topMargin" id="lQ0-Sf-efD"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="managementPayTextField" destination="ubS-o9-MZe" id="C1z-7Q-aB2"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="content cell" rowHeight="303" id="i6K-GL-bt9" customClass="ContentTableViewCell" customModule="RealSungsu" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="641.5" width="414" height="303"/>
+                                <rect key="frame" x="0.0" y="384.5" width="414" height="303"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i6K-GL-bt9" id="8On-PF-pl1">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="303"/>

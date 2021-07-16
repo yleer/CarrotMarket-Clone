@@ -50,7 +50,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
+//        loadData()
         tabBarController?.tabBar.isHidden = false
     }
     

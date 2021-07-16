@@ -61,21 +61,9 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
             if let itemTitle = textField.text{
                 dic["title"] = itemTitle
             }
-        case 2:
-            if let number = textField.text{
-                dic["phoneNumber"] = number
-            }
-        case 4:
+        case 3:
             if let itemPrice = textField.text{
                 dic["price"] = itemPrice
-            }
-        case 5:
-            if let monthlyPay = textField.text{
-                dic["month"] = monthlyPay
-            }
-        case 6:
-            if let managmentPay = textField.text{
-                dic["managment"] = managmentPay
             }
         default:
             print("not good.")
@@ -102,10 +90,10 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return 5
     }
     
-    let identeifer = ["house image cell","titleCell","phoneNumber cell","location cell","price cell","monthly pay cell","management cell","content cell"]
+    let identeifer = ["house image cell","titleCell", "location cell","price cell","content cell"]
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! Image2TableViewCell
@@ -122,40 +110,21 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
             cell.titleTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
             return cell
             
-        }else if indexPath.row == 2{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! PhoneNumberTableViewCell
-            cell.phoneNumberTextField.tag = indexPath.row
-            cell.phoneNumberTextField.delegate = self
-            cell.phoneNumberTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
-            return cell
         }
-        else if indexPath.row == 3{
+        else if indexPath.row == 2{
             let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! CategoryTableViewCell
             cell.locationButton.setTitle(selectedLocation.loaction, for: .normal)
             cell.locationButton.addTarget(self, action: #selector(segueToCategory), for: .touchUpInside)
             
             return cell
-        }else if indexPath.row == 4{
+        }else if indexPath.row == 3{
             let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! PriceTableViewCell
             cell.priceTextField.tag = indexPath.row
             cell.priceTextField.delegate = self
             cell.priceTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
             return cell
             
-        }else if indexPath.row == 5{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! MonthlyPayTableViewCell
-            cell.monthlyPriceTextField.tag = indexPath.row
-            cell.monthlyPriceTextField.delegate = self
-            cell.monthlyPriceTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
-            return cell
-        }else if indexPath.row == 6{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! ManagementTableViewCell
-            cell.managementPayTextField.tag = indexPath.row
-            cell.managementPayTextField.delegate = self
-            cell.managementPayTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
-            return cell
-        }
-        else if indexPath.row == 7{
+        }else if indexPath.row == 4{
             let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! ContentTableViewCell
             cell.contentTextView.tag = indexPath.row
             cell.contentTextView.delegate = self
@@ -165,14 +134,13 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath)
             return cell
         }
-        
     }
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
             return 100
-        }else if indexPath.row == 7{
+        }else if indexPath.row == 4{
             return 500
         }else{
             return 70
@@ -259,7 +227,7 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
         let user = Auth.auth().currentUser
         if let user = user , let email = user.email{
             
-            if let title = dic["title"], let content = dic["content"], let price = dic["price"], let phoneNumb = dic["phoneNumber"], let monthlyPay = dic["month"], let managmentPay = dic["managment"]
+            if let title = dic["title"], let content = dic["content"], let price = dic["price"]
             {
                 var num = 1
                 
@@ -289,9 +257,9 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
                     "price" : price,
                     "content" : content,
                     "date" : Date().timeIntervalSince1970,
-                    "phoneNumb" : phoneNumb,
-                    "monthlyPay" : monthlyPay,
-                    "managmentPay" : managmentPay,
+                    "phoneNumb" : "010",
+                    "monthlyPay" : "123",
+                    "managmentPay" : "123",
                     "x" : selectedLocation.x!,
                     "y" : selectedLocation.y!
                 ]) { error in
