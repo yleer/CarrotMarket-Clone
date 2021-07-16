@@ -36,12 +36,12 @@ class ChatListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatListCell", for: indexPath) as! ChatListTableViewCell
         
-        cell.cellTitle.text = messageCellData[indexPath.row].lastMessage
-        cell.textOpponet.text = messageCellData[indexPath.row].opponent
-        
+        if messageCellData.count > 0{
+            cell.cellTitle.text = messageCellData[indexPath.row].lastMessage
+            cell.textOpponet.text = messageCellData[indexPath.row].opponent
+        }
         
 
-//        let date:Date = Date()
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

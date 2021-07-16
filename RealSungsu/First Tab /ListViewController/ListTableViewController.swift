@@ -92,7 +92,6 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                     return
                 }
                 if let jpegData = imageData, let image = UIImage(data: jpegData) {
-                    
                     self.data[index].itemThumnail = image
                     let Ind = IndexPath(row: index, section: 0)
                     self.tableView.reloadRows(at: [Ind], with: .automatic)
@@ -101,7 +100,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    
+
     @IBAction func refreshTableView(_ sender: UIBarButtonItem) {
         loadData()
     }
@@ -181,7 +180,12 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let prevFrame = headerView.frame
         headerView.frame = CGRect(x: prevFrame.minX, y: scrollView.contentOffset.y + scrollView.safeAreaInsets.top, width: prevFrame.width, height: prevFrame.height)
-        
+    }
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if -scrollView.contentOffset.y > scrollView.safeAreaInsets.top{
+            loadData()
+        }
     }
     
     

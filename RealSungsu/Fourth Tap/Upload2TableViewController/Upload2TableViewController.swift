@@ -32,15 +32,7 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
             }
         }
     }
-    // 서류같은거 나중에 추가해야됨.
-    var documentImages : [UIImage] = []{
-        didSet{
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
+  
     // 장소 이름, x,y 좌표
     var selectedLocation = SelectedCategory()
     
@@ -231,10 +223,22 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection view image cell", for: indexPath) as! ImageCollectionViewCell
             cell.imageCollectionViewCell.image = houseImages[indexPath.row - 1]
+//            cell.imageCollectionViewCell.image.cont
             
+            let deleteButton = UIButton(frame: CGRect(x: cell.bounds.maxX, y: 0, width: 30, height: 30))
+            
+            deleteButton.setTitle("X", for: .normal)
+            deleteButton.backgroundColor = .red
+            deleteButton.addTarget(self, action: #selector(tapToDeleteImage), for: .touchUpInside)
+            
+            cell.addSubview(deleteButton)
             return cell
         }
         
+    }
+    
+    @objc func tapToDeleteImage(){
+        print("hello")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
