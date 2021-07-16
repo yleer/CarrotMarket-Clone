@@ -8,6 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 import Firebase
+import Floaty
 
 class ListTableViewController: UITableViewController, UITextFieldDelegate {
     
@@ -37,6 +38,11 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         configureLoading()
         loadData()
         configureHeaderView()
+        
+        let floaty = Floaty()
+        floaty.addItem("Hello, World!", icon: UIImage(named: ""))
+        self.view.addSubview(floaty)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
