@@ -32,15 +32,18 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         view.addSubview(loadingView)
     }
     
-    
+    var floaty = Floaty()
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLoading()
         loadData()
         configureHeaderView()
         
-        let floaty = Floaty()
-        floaty.addItem("Hello, World!", icon: UIImage(named: ""))
+        floaty = Floaty(frame: CGRect(x: view.bounds.width - 70, y: view.bounds.height - 200 - navigationController!.navigationBar.frame.height, width: 50, height: 50 ))
+        floaty.addItem(title : "동네홍보")
+        floaty.addItem(title: "중고거래") { item in
+            performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+        }
         self.view.addSubview(floaty)
         
     }
@@ -186,13 +189,15 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let prevFrame = headerView.frame
         headerView.frame = CGRect(x: prevFrame.minX, y: scrollView.contentOffset.y + scrollView.safeAreaInsets.top, width: prevFrame.width, height: prevFrame.height)
+
+        floaty.frame = CGRect(x: view.bounds.width - 70, y: view.bounds.height - 200 + scrollView.contentOffset.y, width: 50, height: 50)
     }
     
-    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if -scrollView.contentOffset.y > scrollView.safeAreaInsets.top{
-            loadData()
-        }
-    }
+//    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        if -scrollView.contentOffset.y > scrollView.safeAreaInsets.top{
+//            loadData()
+//        }
+//    }
     
     
     //  firestore itself doesnt support sub string search, maybe later need elastic.
