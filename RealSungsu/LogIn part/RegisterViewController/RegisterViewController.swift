@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController {
     
     @IBOutlet var idHelpLabel: UILabel!
     @IBOutlet var idBorderLine: UIView!
@@ -21,7 +21,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordDoubleHelpLabel: UILabel!
     @IBOutlet var passwordDoubleBorderCheck: UIView!
     @IBOutlet var psaswordDoubleCheckTextField: UITextField!
-    
     
     @IBOutlet var doubleCheckLabel: UILabel!
     
@@ -36,22 +35,34 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         idHelpLabel.isHidden = true
         passwordHelpLabel.isHidden = true
         passwordDoubleHelpLabel.isHidden = true
-        
         doubleCheckLabel.isHidden = true
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTextField()
-        
     }
-    
-    
+
+    @IBAction func signIn(_ sender: UIButton) {
+        if let email = idTextField.text, let password = passwordTextField.text{
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let e = error{
+                    print(e.localizedDescription)
+                }else{
+                    print("succesfully made an account.")
+                }
+            }
+        }
+        // 새로운 아이디 만들면 로그인 창으로 가기.
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+// MARK: TextFieldDelegate part.
+extension RegisterViewController : UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         textField.placeholder = ""
-        
         if textField.tag == 1{
             idHelpLabel.isHidden = false
         }else if textField.tag == 2{
@@ -84,23 +95,4 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    
-    
-    
-
-    @IBAction func signIn(_ sender: UIButton) {
-        if let email = idTextField.text, let password = passwordTextField.text{
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let e = error{
-                    print(e.localizedDescription)
-                }else{
-                    print("succesfully made an account.")
-                }
-            }
-        }
-        // 새로운 아이디 만들면 로그인 창으로 가기.
-        navigationController?.popViewController(animated: true)
-    }
 }
-

@@ -10,12 +10,11 @@ import Firebase
 //import Alamofire
 //import NaverThirdPartyLogin
 
-class LogInViewController: UIViewController, UITextFieldDelegate{
+class LogInViewController: UIViewController{
     
     @IBOutlet var idHelpLabel: UILabel!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet var idBorderLine: UIView!
-    
     
     @IBOutlet var passwordHelpLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -24,32 +23,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet var errorLabel: UILabel!
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.tag == 1{
-            idHelpLabel.isHidden = false
-            if textField.text == ""{
-                textField.placeholder = ""
-            }
-        }else{
-            passwordHelpLabel.isHidden = false
-            if textField.text == ""{
-                textField.placeholder = ""
-            }
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.tag == 1{
-            if textField.text == ""{
-                idHelpLabel.isHidden = true
-            }
-            
-        }else{
-            if textField.text == ""{
-                passwordHelpLabel.isHidden = true
-            }
-        }
-    }
     
     private func configTextField(){
         idTextField.delegate = self
@@ -74,6 +47,38 @@ class LogInViewController: UIViewController, UITextFieldDelegate{
                 }else{
                     self.performSegue(withIdentifier: "show tabBar", sender: self)
                 }
+            }
+        }
+    }
+}
+
+
+// MARK: TextFieldDelegate
+extension LogInViewController : UITextFieldDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.tag == 1{
+            idHelpLabel.isHidden = false
+            if textField.text == ""{
+                textField.placeholder = ""
+            }
+        }else{
+            passwordHelpLabel.isHidden = false
+            if textField.text == ""{
+                textField.placeholder = ""
+            }
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.tag == 1{
+            if textField.text == ""{
+                idHelpLabel.isHidden = true
+            }
+            
+        }else{
+            if textField.text == ""{
+                passwordHelpLabel.isHidden = true
             }
         }
     }

@@ -25,20 +25,30 @@ class MapViewController: UIViewController, MTMapViewDelegate {
             }else{
                 if let document = querySnapshot?.documents{
                     for doc in document{
-                        self.data.append(
-                            ItemData(
-                                title: doc.data()["title"] as! String,
-                                location: doc.data()["location"] as! String,
-                                content: doc.data()["content"] as! String,
-                                x : doc.data()["x"] as! String,
-                                y : doc.data()["y"] as! String,
-                                price : doc.data()["price"] as! String,
-                                monthlyPay: doc.data()["monthlyPay"] as! String,
-                                managementPrice: doc.data()["managmentPay"] as! String,
-                                postUser: doc.data()["emai"] as! String
+                        if let title = doc.data()["title"] as? String,
+                           let loc = doc.data()["location"] as? String,
+                           let cont = doc.data()["content"] as? String,
+                           let x = doc.data()["x"] as? String,
+                           let y = doc.data()["y"] as? String,
+                           let price = doc.data()["price"] as? String,
+                           let monthlyPay = doc.data()["monthlyPay"] as? String,
+                           let managmentPay = doc.data()["managmentPay"] as? String,
+                           let emai = doc.data()["emai"] as? String
+                        {
+                            self.data.append(
+                                ItemData(
+                                    title: title,
+                                    location: loc,
+                                    content: cont,
+                                    x : x,
+                                    y : y,
+                                    price : price,
+                                    monthlyPay: monthlyPay,
+                                    managementPrice: managmentPay,
+                                    postUser:emai
+                                )
                             )
-                        )
-                    
+                        }
                     }
                 }
             }

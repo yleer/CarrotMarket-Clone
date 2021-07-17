@@ -106,7 +106,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
                             self.selectedLocation!.x = detailsPlace.documents[0].x
                             self.selectedLocation!.y = detailsPlace.documents[0].y
                         }else{
-                            print("asdfadsf")
+                            print("good")
                         }
                         
                     case .failure(let error):
