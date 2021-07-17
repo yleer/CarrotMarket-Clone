@@ -27,8 +27,6 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedLocation?.loaction = response.results.juso[indexPath.row].roadAddr
-//        print(selectedLocation?.loaction)
-        
         urlPart()
         navigationController?.popViewController(animated: true)
     }
@@ -36,7 +34,6 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
     var numberOfItem = 0
     var response = JusoResponse(){
         didSet{
-//            print(response)
             searchResultTableView.reloadData()
         }
     }
@@ -46,14 +43,12 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         
         if !keyword.isEmpty {
             findAddress(keyword: keyword) { [weak self] (jusoResponse) in
-                
                 guard let self = self else { return }
-                if (!jusoResponse.results.juso.isEmpty) {
-                    // 뷰에있는 결과라벨에 텍스트 설정
-//                    print(jusoResponse.results.juso.count)
-                    self.numberOfItem = jusoResponse.results.juso.count
+                if let result = jusoResponse.results, let juso = result.juso{
+                    self.numberOfItem = juso.count
                     self.response = jusoResponse
-                    
+                }else{
+                    print("wrong search ")
                 }
             }
         }
