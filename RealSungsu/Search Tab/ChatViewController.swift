@@ -8,56 +8,23 @@
 import UIKit
 import Firebase
 
-class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ChatViewController: UIViewController{
+    
+    @IBOutlet var messageTableView: UITableView!
+    @IBOutlet var messageTextField: UITextField!
     
     var messages : [MessageModel] = []
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "message cell", for: indexPath) as! MessageTableViewCell
-        cell.messageBody.text = messages[indexPath.row].body
-        if let currentUser = Auth.auth().currentUser?.email{
-            if messages[indexPath.row].sender == currentUser{
-                cell.youAvatar.isHidden = true
-                cell.meAvatar.isHidden = false
-                cell.messageBackground.backgroundColor = UIColor(named: "BrandPurple")
-            }else{
-                cell.meAvatar.isHidden = true
-                cell.youAvatar.isHidden = false
-                cell.messageBackground.backgroundColor = UIColor(named: "BrandBlue")
-                
-            }
-        }
-        
-        
-        return cell
-    }
-    
+   
     let db = Firestore.firestore()
     var postOwner : String?
     var postTitle : String?
     
-    
     var documentName : String?
-    
-    
-    func getCollectionName(){
-        if let currentUser = Auth.auth().currentUser?.email, let postUser = postOwner, let title = postTitle {
-            
-            if currentUser > postUser{
-                documentName = currentUser + "&" + postUser + "&" + title
-            }else{
-                documentName = postUser + "&" + currentUser + "&" + title
-            }
-        }
-    }
     
     @IBAction func sendButton(_ sender: UIButton) {
         if let title = postTitle, let currentUser = Auth.auth().currentUser?.email, let postUser = postOwner, let messageBody = messageTextField.text, let docName = documentName{
             
-            db.collection("rooms").document(docName).setData(
+            db.collection(Constants.FireStoreChatRoomCollectionName).document(docName).setData(
                 [
                     "sender" : currentUser,
                     "opponent" : postUser,
@@ -70,7 +37,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
             
-            db.collection("rooms").document(docName).collection("messages").addDocument(
+            db.collection(Constants.FireStoreChatRoomCollectionName).document(docName).collection(Constants.FireStoreChatRoomCollectionName).addDocument(
                 data: [
                     "sender" : currentUser,
                     "body" : messageBody,
@@ -88,19 +55,21 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         messageTextField.text = ""
     }
     
-    @IBOutlet var messageTableView: UITableView!
-    @IBOutlet var messageTextField: UITextField!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        messageTableView.dataSource = self
-        messageTableView.delegate = self
-        loadMessages()
+    private func getCollectionName(){
+        if let currentUser = Auth.auth().currentUser?.email, let postUser = postOwner, let title = postTitle {
+            
+            if currentUser > postUser{
+                documentName = currentUser + "&" + postUser + "&" + title
+            }else{
+                documentName = postUser + "&" + currentUser + "&" + title
+            }
+        }
     }
     
     private func loadMessages(){
         getCollectionName()
         
-        db.collection("rooms")
+        db.collection(Constants.FireStoreChatRoomCollectionName)
             .document(documentName!)
             .collection("messages")
             .order(by: "timeSent")
@@ -129,5 +98,40 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        messageTableView.dataSource = self
+        messageTableView.delegate = self
+        loadMessages()
+    }
+    
+}
+
+extension ChatViewController:  UITableViewDataSource, UITableViewDelegate{
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ChatViewController.messeageCellId, for: indexPath) as! MessageTableViewCell
+        cell.messageBody.text = messages[indexPath.row].body
+        if let currentUser = Auth.auth().currentUser?.email{
+            if messages[indexPath.row].sender == currentUser{
+                cell.youAvatar.isHidden = true
+                cell.meAvatar.isHidden = false
+                cell.messageBackground.backgroundColor = UIColor(named: Constants.ChatViewController.meColor)
+            }else{
+                cell.meAvatar.isHidden = true
+                cell.youAvatar.isHidden = false
+                cell.messageBackground.backgroundColor = UIColor(named: Constants.ChatViewController.youColor)
+                
+            }
+        }
+        
+        
+        return cell
     }
 }

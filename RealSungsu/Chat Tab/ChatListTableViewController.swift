@@ -14,35 +14,29 @@ class ChatListTableViewController: UITableViewController {
     
     var messageCellData : [MessageCellData] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadRooms()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadRooms()
     }
+    
+    
     // MARK: - Table view data source
-    
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageCellData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chatListCell", for: indexPath) as! ChatListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ChatListTableViewController.chatListCellId, for: indexPath) as! ChatListTableViewCell
         
         if messageCellData.count > 0{
             cell.cellTitle.text = messageCellData[indexPath.row].lastMessage
             cell.textOpponet.text = messageCellData[indexPath.row].opponent
         }
         
-
-
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = Date(timeIntervalSince1970: TimeInterval(messageCellData[indexPath.row].date)!)
@@ -56,13 +50,13 @@ class ChatListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        performSegue(withIdentifier: "select a chat", sender: self)
+        performSegue(withIdentifier: Constants.ChatListTableViewController.selectChatRoomSegue, sender: self)
     }
     
     var selectedIndex = 0
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "select a chat"{
+        if segue.identifier == Constants.ChatListTableViewController.selectChatRoomSegue{
             let destinationVC = segue.destination as! ChatViewController
             destinationVC.postOwner = messageCellData[selectedIndex].opponent
             destinationVC.postTitle = messageCellData[selectedIndex].title
@@ -74,7 +68,7 @@ class ChatListTableViewController: UITableViewController {
         if let currentUser = Auth.auth().currentUser?.email{
             
             // current user is the seller
-            db.collection("rooms").whereField("opponent", isEqualTo: currentUser).getDocuments { querySnapshot, error in
+            db.collection(Constants.FireStoreChatRoomCollectionName).whereField("opponent", isEqualTo: currentUser).getDocuments { querySnapshot, error in
                 if let e = error{
                     print(e)
                 }else{
@@ -113,7 +107,7 @@ class ChatListTableViewController: UITableViewController {
             }
             
             // current user is the buyer
-            db.collection("rooms").whereField("sender", isEqualTo: currentUser).getDocuments { querySnapshot, error in
+            db.collection(Constants.FireStoreChatRoomCollectionName).whereField("sender", isEqualTo: currentUser).getDocuments { querySnapshot, error in
                 if let e = error{
                     print(e)
                 }else{

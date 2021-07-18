@@ -11,6 +11,7 @@ import UIKit
 struct Constants {
     static let maxSize : Int = 4 * 1024 * 1024
     static let FireStoreUsedItemCollectionName = "realestate data"
+    static let FireStoreChatRoomCollectionName = "rooms"
     
     
     
@@ -53,5 +54,16 @@ struct Constants {
         static let jusoEndPoint = "https://www.juso.go.kr/addrlink/addrLinkApi.do"
     }
     
+    struct ChatListTableViewController {
+        static let chatListCellId = "chatListCell"
+        static let selectChatRoomSegue = "select a chat"
+    }
+    
+    
+    struct ChatViewController {
+        static let messeageCellId = "message cell"
+        static let meColor = "BrandPurple"
+        static let youColor =  "BrandBlue"
+    }
     
 }
