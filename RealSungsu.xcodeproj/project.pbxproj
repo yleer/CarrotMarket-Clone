@@ -17,12 +17,12 @@
 		888915242698282100836B3B /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888915232698282100836B3B /* ChatListTableViewController.swift */; };
 		8895C6352686D9AA000DCD0A /* AddImageButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895C6342686D9A9000DCD0A /* AddImageButtonCollectionViewCell.swift */; };
 		8895C6372686D9CF000DCD0A /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895C6362686D9CF000DCD0A /* ImageCollectionViewCell.swift */; };
-		88AFE7FB2684AE7900D2C0F7 /* Upload2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */; };
+		88AFE7FB2684AE7900D2C0F7 /* UploadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE7FA2684AE7900D2C0F7 /* UploadTableViewController.swift */; };
 		88AFE7FF2684AF2800D2C0F7 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE7FE2684AF2800D2C0F7 /* TitleTableViewCell.swift */; };
 		88AFE8012684AF3100D2C0F7 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE8002684AF3100D2C0F7 /* PriceTableViewCell.swift */; };
 		88AFE8032684AF3F00D2C0F7 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE8022684AF3F00D2C0F7 /* ContentTableViewCell.swift */; };
 		88AFE8052684AF4F00D2C0F7 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */; };
-		88B0CA522685F73A005DB9E8 /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */; };
+		88B0CA522685F73A005DB9E8 /* SelectedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA512685F73A005DB9E8 /* SelectedLocation.swift */; };
 		88B0CA5B268604C0005DB9E8 /* IDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */; };
 		88B4481F26996118002695C2 /* MessageCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4481E26996118002695C2 /* MessageCellData.swift */; };
 		88B4482126997DDA002695C2 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */; };
@@ -100,12 +100,12 @@
 		888915232698282100836B3B /* ChatListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
 		8895C6342686D9A9000DCD0A /* AddImageButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		8895C6362686D9CF000DCD0A /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upload2TableViewController.swift; sourceTree = "<group>"; };
+		88AFE7FA2684AE7900D2C0F7 /* UploadTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTableViewController.swift; sourceTree = "<group>"; };
 		88AFE7FE2684AF2800D2C0F7 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		88AFE8002684AF3100D2C0F7 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
 		88AFE8022684AF3F00D2C0F7 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		88AFE8042684AF4F00D2C0F7 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
+		88B0CA512685F73A005DB9E8 /* SelectedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedLocation.swift; sourceTree = "<group>"; };
 		88B0CA5A268604C0005DB9E8 /* IDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTableViewCell.swift; sourceTree = "<group>"; };
 		88B4481E26996118002695C2 /* MessageCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCellData.swift; sourceTree = "<group>"; };
 		88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
@@ -206,7 +206,6 @@
 			children = (
 				8870BD4826907E9100E8FEDA /* LocationSearchViewController.swift */,
 				8870BD4B26907F1600E8FEDA /* LocationSearchTableViewCell.swift */,
-				88D069E926908140000F22E4 /* JusoResponse.swift */,
 			);
 			path = "LocationSearch View Controller";
 			sourceTree = "<group>";
@@ -239,7 +238,7 @@
 		887E04392693F369002C2B61 /* UploadTableviewCells */ = {
 			isa = PBXGroup;
 			children = (
-				8895C6332686D98F000DCD0A /* image Collection View  */,
+				8895C6332686D98F000DCD0A /* Upload image Collection View cell part */,
 				881ED3DB2686DC970094177B /* Image2TableViewCell.swift */,
 				88AFE7FE2684AF2800D2C0F7 /* TitleTableViewCell.swift */,
 				88AFE8002684AF3100D2C0F7 /* PriceTableViewCell.swift */,
@@ -263,41 +262,32 @@
 			path = DetailTableViewCells;
 			sourceTree = "<group>";
 		};
-		887E043B269407B0002C2B61 /* MapViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88D81DAD269440AF00CEC31C /* MapViewController.swift */,
-			);
-			path = MapViewController;
-			sourceTree = "<group>";
-		};
-		88891522269827FE00836B3B /* Last Tab */ = {
+		88891522269827FE00836B3B /* Chat Tab */ = {
 			isa = PBXGroup;
 			children = (
 				888915232698282100836B3B /* ChatListTableViewController.swift */,
 				88B4481E26996118002695C2 /* MessageCellData.swift */,
 				88B4482026997DDA002695C2 /* ChatListTableViewCell.swift */,
 			);
-			path = "Last Tab";
+			path = "Chat Tab";
 			sourceTree = "<group>";
 		};
-		8895C62E2686B83F000DCD0A /* Upload2TableViewController */ = {
+		8895C62E2686B83F000DCD0A /* UploadTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				887E04392693F369002C2B61 /* UploadTableviewCells */,
-				88AFE7FA2684AE7900D2C0F7 /* Upload2TableViewController.swift */,
-				88B0CA512685F73A005DB9E8 /* SelectedCategory.swift */,
+				88AFE7FA2684AE7900D2C0F7 /* UploadTableViewController.swift */,
 			);
-			path = Upload2TableViewController;
+			path = UploadTableViewController;
 			sourceTree = "<group>";
 		};
-		8895C6332686D98F000DCD0A /* image Collection View  */ = {
+		8895C6332686D98F000DCD0A /* Upload image Collection View cell part */ = {
 			isa = PBXGroup;
 			children = (
 				8895C6342686D9A9000DCD0A /* AddImageButtonCollectionViewCell.swift */,
 				8895C6362686D9CF000DCD0A /* ImageCollectionViewCell.swift */,
 			);
-			path = "image Collection View ";
+			path = "Upload image Collection View cell part";
 			sourceTree = "<group>";
 		};
 		88B0CA572686049C005DB9E8 /* DetailTableViewController */ = {
@@ -393,9 +383,9 @@
 				88C4E6932680557A00983D36 /* Main.storyboard */,
 				88D81DB6269442CD00CEC31C /* LogIn part */,
 				88D81DB02694417500CEC31C /* Search Tab */,
-				88D81DB12694418400CEC31C /* Second Tab */,
-				88D81DB22694419600CEC31C /* Fourth Tap */,
-				88891522269827FE00836B3B /* Last Tab */,
+				88D81DB12694418400CEC31C /* Map Tab */,
+				88D81DB22694419600CEC31C /* Upload Item */,
+				88891522269827FE00836B3B /* Chat Tab */,
 				88D81DAF2694410700CEC31C /* Data */,
 				88C4E6A12680563600983D36 /* Supporting Files */,
 				880C6E79268AF95700390CBA /* Constants.swift */,
@@ -420,7 +410,9 @@
 		88D81DAF2694410700CEC31C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				88B0CA512685F73A005DB9E8 /* SelectedLocation.swift */,
 				88CADB722696944500885543 /* MessageModel.swift */,
+				88D069E926908140000F22E4 /* JusoResponse.swift */,
 				88C4E6AA268057CB00983D36 /* ItemData.swift */,
 				88C383F1269168B90021C704 /* Place.swift */,
 			);
@@ -437,22 +429,22 @@
 			path = "Search Tab";
 			sourceTree = "<group>";
 		};
-		88D81DB12694418400CEC31C /* Second Tab */ = {
+		88D81DB12694418400CEC31C /* Map Tab */ = {
 			isa = PBXGroup;
 			children = (
-				887E043B269407B0002C2B61 /* MapViewController */,
+				88D81DAD269440AF00CEC31C /* MapViewController.swift */,
 			);
-			path = "Second Tab";
+			path = "Map Tab";
 			sourceTree = "<group>";
 		};
-		88D81DB22694419600CEC31C /* Fourth Tap */ = {
+		88D81DB22694419600CEC31C /* Upload Item */ = {
 			isa = PBXGroup;
 			children = (
 				88D81DB3269441BF00CEC31C /* SuccessViewController */,
-				8895C62E2686B83F000DCD0A /* Upload2TableViewController */,
+				8895C62E2686B83F000DCD0A /* UploadTableViewController */,
 				8870BD4A26907F0000E8FEDA /* LocationSearch View Controller */,
 			);
-			path = "Fourth Tap";
+			path = "Upload Item";
 			sourceTree = "<group>";
 		};
 		88D81DB3269441BF00CEC31C /* SuccessViewController */ = {
@@ -673,14 +665,14 @@
 				887840042689A772004BCC5F /* DetailImageCell.swift in Sources */,
 				8870BD4926907E9100E8FEDA /* LocationSearchViewController.swift in Sources */,
 				88C4E6902680557A00983D36 /* SceneDelegate.swift in Sources */,
-				88AFE7FB2684AE7900D2C0F7 /* Upload2TableViewController.swift in Sources */,
+				88AFE7FB2684AE7900D2C0F7 /* UploadTableViewController.swift in Sources */,
 				88C4E6AD268057CC00983D36 /* ListTableViewController.swift in Sources */,
 				8895C6372686D9CF000DCD0A /* ImageCollectionViewCell.swift in Sources */,
 				88E970C22696E56B00BB5961 /* MessageTableViewCell.swift in Sources */,
 				88CADB752696D13400885543 /* ChatViewController.swift in Sources */,
 				886681932686055800C8FACC /* Content2TableViewCell.swift in Sources */,
 				881ED3DC2686DC970094177B /* Image2TableViewCell.swift in Sources */,
-				88B0CA522685F73A005DB9E8 /* SelectedCategory.swift in Sources */,
+				88B0CA522685F73A005DB9E8 /* SelectedLocation.swift in Sources */,
 				88AFE8052684AF4F00D2C0F7 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

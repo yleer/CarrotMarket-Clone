@@ -10,7 +10,7 @@ import Firebase
 import PhotosUI
 import Alamofire
 
-class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate, PHPickerViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class UploadTableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate, PHPickerViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class Upload2TableViewController: UITableViewController, UITextFieldDelegate, UI
     }
   
     // 장소 이름, x,y 좌표
-    var selectedLocation = SelectedCategory()
+    var selectedLocation = SelectedLocation()
     
     // dic -> title, price, content dictionary.
     var dic : [String : String] = [:]

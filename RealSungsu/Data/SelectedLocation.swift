@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SelectedCategory{
+class SelectedLocation{
     var loaction : String = "지역을 선택해주세요."
     var x : String?
     var y : String?

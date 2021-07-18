@@ -14,7 +14,7 @@ class LocationSearchViewController: UIViewController, UITableViewDelegate, UITab
         return numberOfItem
     }
     
-    var selectedLocation: SelectedCategory?
+    var selectedLocation: SelectedLocation?
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "location result cell", for: indexPath) as! LocationSearchTableViewCell

@@ -210,9 +210,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                     print("\(document.documentID) => \(document.data())")
                 }
             }
-            
         }
-        
     }
     
     
