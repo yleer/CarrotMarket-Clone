@@ -60,7 +60,6 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.isHidden = false
         loadData()
     }
     
@@ -70,7 +69,6 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     }
     
     private func kakaoMap(){
-        
         let mapView = MTMapView(frame: view.frame)
         mapView.delegate = self
         var marks : [MTMapPOIItem] = []
@@ -121,14 +119,14 @@ class MapViewController: UIViewController, MTMapViewDelegate {
     
     func mapView(_ mapView: MTMapView!, touchedCalloutBalloonOf poiItem: MTMapPOIItem!) {
         selectedPOI = poiItem.tag
-        performSegue(withIdentifier: "map to detail segue", sender: self)
+        performSegue(withIdentifier: Constants.MapViewController.segueToDetail, sender: self)
     }
     
     var selectedPOI = 0
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "map to detail segue"{
+        if segue.identifier == Constants.MapViewController.segueToDetail{
             if let destinationVC = segue.destination as? DetailViewController{
                 destinationVC.itemImageName = data[selectedPOI].itemThumnail
                 destinationVC.itemLocationName = data[selectedPOI].location

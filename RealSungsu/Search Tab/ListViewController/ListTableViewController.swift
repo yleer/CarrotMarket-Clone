@@ -22,7 +22,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         loadingView = UIView(frame: CGRect(x: view.frame.minX, y: view.frame.minY, width: view.frame.width, height: view.frame.height))
         
         let centerFrame = loadingView.center
-        let spinnerSize = CGSize(width: 100, height: 100)
+        let spinnerSize = Constants.ListViewController.spinnerSize
         
         spinner = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: centerFrame.x - spinnerSize.width / 2, y: centerFrame.y - spinnerSize.height), size: spinnerSize))
         spinner.style = .large
@@ -42,7 +42,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         floaty = Floaty(frame: CGRect(x: view.bounds.width - 70, y: view.bounds.height - 200 - navigationController!.navigationBar.frame.height, width: 50, height: 50 ))
         floaty.addItem(title : "동네홍보")
         floaty.addItem(title: "중고거래") { item in
-            self.performSegue(withIdentifier: "upload segue", sender: self)
+            self.performSegue(withIdentifier: Constants.ListViewController.uploadSegue, sender: self)
         }
         self.view.addSubview(floaty)
         
@@ -59,7 +59,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     func loadData() {
         view.addSubview(loadingView)
         data = []
-        db.collection("realestate data").order(by: "date", descending: true).getDocuments { querySnapshot, error in
+        db.collection(Constants.FireStoreUsedItemCollectionName).order(by: "date", descending: true).getDocuments { querySnapshot, error in
             if let e = error{
                 print(e)
             }else{
@@ -137,18 +137,18 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return Constants.ListViewController.cellHeight
     }
     
     var selectIndex = 0
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectIndex = indexPath.row
-        performSegue(withIdentifier: "show detail", sender: self)
+        performSegue(withIdentifier: Constants.ListViewController.showDetailSegue, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "show detail"{
+        if segue.identifier == Constants.ListViewController.showDetailSegue{
             if let destinationVC = segue.destination as? DetailViewController{
                 destinationVC.itemImageName = data[selectIndex].itemThumnail
                 destinationVC.itemLocationName = data[selectIndex].location
@@ -202,7 +202,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     @objc func confirmSearchSetting(){
         let searchStirng = dic["price"]!!
         print(searchStirng)
-        db.collection("realestate data").whereField("title", isGreaterThanOrEqualTo: searchStirng).getDocuments { (querySnapshot, err) in
+        db.collection(Constants.FireStoreUsedItemCollectionName).whereField("title", isGreaterThanOrEqualTo: searchStirng).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

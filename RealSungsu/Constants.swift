@@ -13,8 +13,12 @@ struct Constants {
     static let FireStoreUsedItemCollectionName = "realestate data"
     static let FireStoreChatRoomCollectionName = "rooms"
     
-    
-    
+    struct ListViewController {
+        static let showDetailSegue = "show detail"
+        static let uploadSegue = "upload segue"
+        static let spinnerSize = CGSize(width: 100, height: 100)
+        static let cellHeight : CGFloat = 150
+    }
     
     struct DetailViewController {
         static let detailVCtoChatVCsegue = "chat segue"
@@ -31,7 +35,6 @@ struct Constants {
         
     }
     
-    
     struct UploadTableViewController {
         
         static let Cellidenteifer = ["house image cell","titleCell", "location cell","price cell","content cell"]
@@ -46,7 +49,6 @@ struct Constants {
         static let otherCellHieght: CGFloat = 70
     }
     
-    
     struct LocationSearchVC{
         static let kakoAuth = "KakaoAK 8e455de386571ac030cfe8651e82b8cd"
         static let kakoEndPoint = "https://dapi.kakao.com/v2/local/search/address.json"
@@ -59,11 +61,14 @@ struct Constants {
         static let selectChatRoomSegue = "select a chat"
     }
     
-    
     struct ChatViewController {
         static let messeageCellId = "message cell"
         static let meColor = "BrandPurple"
         static let youColor =  "BrandBlue"
+    }
+    
+    struct MapViewController {
+        static let segueToDetail = "map to detail segue"
     }
     
 }

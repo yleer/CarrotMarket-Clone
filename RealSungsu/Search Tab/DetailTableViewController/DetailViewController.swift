@@ -151,8 +151,11 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource{
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
-            cell.postInfo.text = dateFormatter.string(from: Date(timeIntervalSince1970: postDate!))
-            cell.contentLabel.text = itemContentName
+            if let date = postDate{
+                cell.postInfo.text = dateFormatter.string(from: Date(timeIntervalSince1970: date))
+                cell.contentLabel.text = itemContentName
+            }
+            
             
             return cell
         }

@@ -13,7 +13,11 @@ class ChatViewController: UIViewController{
     @IBOutlet var messageTableView: UITableView!
     @IBOutlet var messageTextField: UITextField!
     
-    var messages : [MessageModel] = []
+    var messages : [MessageModel] = []{
+        didSet{
+            messageTableView.reloadData()
+        }
+    }
    
     let db = Firestore.firestore()
     var postOwner : String?
@@ -37,7 +41,7 @@ class ChatViewController: UIViewController{
                 }
             }
             
-            db.collection(Constants.FireStoreChatRoomCollectionName).document(docName).collection(Constants.FireStoreChatRoomCollectionName).addDocument(
+            db.collection(Constants.FireStoreChatRoomCollectionName).document(docName).collection("messages").addDocument(
                 data: [
                     "sender" : currentUser,
                     "body" : messageBody,
@@ -86,12 +90,11 @@ class ChatViewController: UIViewController{
                         }
                         
                         DispatchQueue.main.async {
-                            
                             self.messageTableView.reloadData()
-                            
+                            print("not")
                             let index = IndexPath(row: self.messages.count - 1, section: 0)
                             self.messageTableView.scrollToRow(at: index, at: .bottom, animated: false)
-
+                            print(self.messages.count)
                         }
                         
                     }
