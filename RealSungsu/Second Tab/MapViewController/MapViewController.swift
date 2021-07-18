@@ -33,7 +33,8 @@ class MapViewController: UIViewController, MTMapViewDelegate {
                            let price = doc.data()["price"] as? String,
                            let monthlyPay = doc.data()["monthlyPay"] as? String,
                            let managmentPay = doc.data()["managmentPay"] as? String,
-                           let emai = doc.data()["emai"] as? String
+                           let emai = doc.data()["emai"] as? String,
+                           let date = doc.data()["date"] as? Double
                         {
                             self.data.append(
                                 ItemData(
@@ -45,7 +46,8 @@ class MapViewController: UIViewController, MTMapViewDelegate {
                                     price : price,
                                     monthlyPay: monthlyPay,
                                     managementPrice: managmentPay,
-                                    postUser:emai
+                                    postUser:emai,
+                                    date : date
                                 )
                             )
                         }

@@ -20,9 +20,7 @@ class LogInViewController: UIViewController{
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet var passwordBorderLine: UIView!
     
-    
     @IBOutlet var errorLabel: UILabel!
-    
     
     private func configTextField(){
         idTextField.delegate = self

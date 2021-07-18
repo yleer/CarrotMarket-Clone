@@ -364,7 +364,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="item" rowHeight="151" id="ddr-RG-nAA" customClass="ItemTableViewCell" customModule="RealSungsu" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="item" rowHeight="151" id="ddr-RG-nAA" customClass="ListTableViewItemCell" customModule="RealSungsu" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="151"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ddr-RG-nAA" id="tpE-Xy-K8c">
@@ -1269,7 +1269,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OR1-sM-kb3"/>
+        <segue reference="Mbn-QZ-vrg"/>
         <segue reference="Fxq-kI-tuU"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -20,4 +20,5 @@ struct ItemData {
     var monthlyPay : String
     var managementPrice : String
     var postUser : String
+    var date : Double
 }

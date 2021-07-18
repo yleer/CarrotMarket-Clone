@@ -71,7 +71,7 @@
 		88C4E6A32680570E00983D36 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C4E6A22680570E00983D36 /* GoogleService-Info.plist */; };
 		88C4E6AD268057CC00983D36 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A5268057C400983D36 /* ListTableViewController.swift */; };
 		88C4E6B0268057CC00983D36 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A8268057C800983D36 /* LogInViewController.swift */; };
-		88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */; };
+		88C4E6B1268057CC00983D36 /* ListTableViewItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6A9268057CA00983D36 /* ListTableViewItemCell.swift */; };
 		88C4E6B2268057CC00983D36 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6AA268057CB00983D36 /* ItemData.swift */; };
 		88C4E6B3268057CC00983D36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4E6AB268057CC00983D36 /* RegisterViewController.swift */; };
 		88CADB7126968F2000885543 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CADB7026968F2000885543 /* DetailViewController.swift */; };
@@ -164,7 +164,7 @@
 		88C4E6A22680570E00983D36 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88C4E6A5268057C400983D36 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		88C4E6A8268057C800983D36 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		88C4E6A9268057CA00983D36 /* ListTableViewItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewItemCell.swift; sourceTree = "<group>"; };
 		88C4E6AA268057CB00983D36 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		88C4E6AB268057CC00983D36 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		88CADB7026968F2000885543 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -230,8 +230,8 @@
 		8875F68426883E5C005B6BA5 /* ListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				88C4E6A9268057CA00983D36 /* ItemTableViewCell.swift */,
 				88C4E6A5268057C400983D36 /* ListTableViewController.swift */,
+				88C4E6A9268057CA00983D36 /* ListTableViewItemCell.swift */,
 			);
 			path = ListViewController;
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 			children = (
 				88C4E6932680557A00983D36 /* Main.storyboard */,
 				88D81DB6269442CD00CEC31C /* LogIn part */,
-				88D81DB02694417500CEC31C /* First Tab  */,
+				88D81DB02694417500CEC31C /* Search Tab */,
 				88D81DB12694418400CEC31C /* Second Tab */,
 				88D81DB22694419600CEC31C /* Fourth Tap */,
 				88891522269827FE00836B3B /* Last Tab */,
@@ -427,14 +427,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		88D81DB02694417500CEC31C /* First Tab  */ = {
+		88D81DB02694417500CEC31C /* Search Tab */ = {
 			isa = PBXGroup;
 			children = (
 				8875F68426883E5C005B6BA5 /* ListViewController */,
 				88B0CA572686049C005DB9E8 /* DetailTableViewController */,
 				88E970C12696E56B00BB5961 /* MessageTableViewCell.swift */,
 			);
-			path = "First Tab ";
+			path = "Search Tab";
 			sourceTree = "<group>";
 		};
 		88D81DB12694418400CEC31C /* Second Tab */ = {
@@ -663,7 +663,7 @@
 				88B4481F26996118002695C2 /* MessageCellData.swift in Sources */,
 				88C4E6B0268057CC00983D36 /* LogInViewController.swift in Sources */,
 				88AFE8012684AF3100D2C0F7 /* PriceTableViewCell.swift in Sources */,
-				88C4E6B1268057CC00983D36 /* ItemTableViewCell.swift in Sources */,
+				88C4E6B1268057CC00983D36 /* ListTableViewItemCell.swift in Sources */,
 				8870BD4C26907F1600E8FEDA /* LocationSearchTableViewCell.swift in Sources */,
 				88D81DB5269441D100CEC31C /* SuccessViewController.swift in Sources */,
 				88C383F2269168B90021C704 /* Place.swift in Sources */,

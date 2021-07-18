@@ -77,7 +77,8 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                                 price : doc.data()["price"] as! String,
                                 monthlyPay: doc.data()["monthlyPay"] as! String,
                                 managementPrice: doc.data()["managmentPay"] as! String,
-                                postUser: doc.data()["emai"] as! String
+                                postUser: doc.data()["emai"] as! String,
+                                date : doc.data()["date"] as! Double
                             )
                             
                         )
@@ -122,7 +123,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! ItemTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! ListTableViewItemCell
         
         cell.itemImage.image = data[indexPath.row].itemThumnail
         cell.itemImage.contentMode = .scaleAspectFill
@@ -157,6 +158,7 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
                 destinationVC.itemMonthlyPay = data[selectIndex].monthlyPay
                 destinationVC.itemManagmentPay = data[selectIndex].managementPrice
                 destinationVC.postOwner = data[selectIndex].postUser
+                destinationVC.postDate = data[selectIndex].date
             }
         }
     }
@@ -194,11 +196,6 @@ class ListTableViewController: UITableViewController, UITextFieldDelegate {
         floaty.frame = CGRect(x: view.bounds.width - 70, y: view.bounds.height - 200 + scrollView.contentOffset.y, width: 50, height: 50)
     }
     
-//    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if -scrollView.contentOffset.y > scrollView.safeAreaInsets.top{
-//            loadData()
-//        }
-//    }
     
     
     //  firestore itself doesnt support sub string search, maybe later need elastic.
