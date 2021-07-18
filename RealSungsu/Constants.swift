@@ -10,6 +10,7 @@ import UIKit
 
 struct Constants {
     static let maxSize : Int = 4 * 1024 * 1024
+    static let FireStoreUsedItemCollectionName = "realestate data"
     
     
     
@@ -27,6 +28,29 @@ struct Constants {
         
         static let maxLoadImageSize : Int = 4 * 1024 * 1024
         
+    }
+    
+    
+    struct UploadTableViewController {
+        
+        static let Cellidenteifer = ["house image cell","titleCell", "location cell","price cell","content cell"]
+        static let addImageCollectionViewCellId = "collectionView add Button"
+        static let uploadedImagesCollectionViewCellId = "collection view image cell"
+        static let collectionCellSize = CGSize(width: 60, height: 60)
+        static let locationSearchSegue = "choose location segue"
+        static let segueToSuccessScreen = "success saving"
+        
+        static let uploadImageCellHeight: CGFloat = 100
+        static let contentCellHeight: CGFloat = 500
+        static let otherCellHieght: CGFloat = 70
+    }
+    
+    
+    struct LocationSearchVC{
+        static let kakoAuth = "KakaoAK 8e455de386571ac030cfe8651e82b8cd"
+        static let kakoEndPoint = "https://dapi.kakao.com/v2/local/search/address.json"
+        static let jusoConfirmKet = "devU01TX0FVVEgyMDIxMDcwMzE1MjYxNzExMTM1MzQ="
+        static let jusoEndPoint = "https://www.juso.go.kr/addrlink/addrLinkApi.do"
     }
     
     

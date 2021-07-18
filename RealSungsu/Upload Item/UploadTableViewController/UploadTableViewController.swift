@@ -10,21 +10,9 @@ import Firebase
 import PhotosUI
 import Alamofire
 
-class UploadTableViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate, PHPickerViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    // when view will appear reload data to reflect the change.
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-    }
-    
+class UploadTableViewController: UITableViewController {
     
     // MARK: Data
-    // images to save.
     var houseImages : [UIImage] = []{
         didSet{
             DispatchQueue.main.async {
@@ -33,51 +21,26 @@ class UploadTableViewController: UITableViewController, UITextFieldDelegate, UIT
         }
     }
   
-    // 장소 이름, x,y 좌표
     var selectedLocation = SelectedLocation()
-    
-    // dic -> title, price, content dictionary.
     var dic : [String : String] = [:]
     
-    
-    // MARK: Getting title, price and content from text field and text view.
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        // In storyboard there is a placeholder.
-        // when begin editing, change text color to black.
-        textView.text = nil
-        textView.textColor = .black
-    }
-    // For content : text view.
-    func textViewDidChange(_ textView: UITextView) {
-        if let itemContent = textView.text{
-            dic["content"] = itemContent
-        }
-    }
-    // when enter a text into textfield, save text to dic.
-    @objc func valueChanged(_ textField: UITextField){
-        switch textField.tag {
-        case 1:
-            if let itemTitle = textField.text{
-                dic["title"] = itemTitle
-            }
-        case 3:
-            if let itemPrice = textField.text{
-                dic["price"] = itemPrice
-            }
-        default:
-            print("not good.")
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
-    // MARK: when click category button, segue to LocationCategoryTableViewController to select category.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
+    
+    // MARK: segue to location search vc
     @objc func segueToCategory(){
-        performSegue(withIdentifier: "choose location segue", sender: self)
+        performSegue(withIdentifier: Constants.UploadTableViewController.locationSearchSegue, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "choose location segue"{
+        if segue.identifier == Constants.UploadTableViewController.locationSearchSegue{
             if let destinationVC = segue.destination as? LocationSearchViewController{
                 destinationVC.selectedLocation = selectedLocation
                 
@@ -93,10 +56,10 @@ class UploadTableViewController: UITableViewController, UITextFieldDelegate, UIT
         return 5
     }
     
-    let identeifer = ["house image cell","titleCell", "location cell","price cell","content cell"]
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! Image2TableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UploadTableViewController.Cellidenteifer[indexPath.row], for: indexPath) as! Image2TableViewCell
             cell.imageCollectionView.delegate = self
             cell.imageCollectionView.alwaysBounceHorizontal = true
             cell.imageCollectionView.dataSource = self
@@ -104,7 +67,7 @@ class UploadTableViewController: UITableViewController, UITextFieldDelegate, UIT
             
             return cell
         }else if indexPath.row == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! TitleTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UploadTableViewController.Cellidenteifer[indexPath.row], for: indexPath) as! TitleTableViewCell
             cell.titleTextField.tag = indexPath.row
             cell.titleTextField.delegate = self
             cell.titleTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
@@ -112,26 +75,26 @@ class UploadTableViewController: UITableViewController, UITextFieldDelegate, UIT
             
         }
         else if indexPath.row == 2{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! CategoryTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UploadTableViewController.Cellidenteifer[indexPath.row], for: indexPath) as! CategoryTableViewCell
             cell.locationButton.setTitle(selectedLocation.loaction, for: .normal)
             cell.locationButton.addTarget(self, action: #selector(segueToCategory), for: .touchUpInside)
             
             return cell
         }else if indexPath.row == 3{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! PriceTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UploadTableViewController.Cellidenteifer[indexPath.row], for: indexPath) as! PriceTableViewCell
             cell.priceTextField.tag = indexPath.row
             cell.priceTextField.delegate = self
             cell.priceTextField.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
             return cell
             
         }else if indexPath.row == 4{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath) as! ContentTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UploadTableViewController.Cellidenteifer[indexPath.row], for: indexPath) as! ContentTableViewCell
             cell.contentTextView.tag = indexPath.row
             cell.contentTextView.delegate = self
             return cell
             
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: identeifer[indexPath.row], for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.UploadTableViewController.Cellidenteifer[indexPath.row], for: indexPath)
             return cell
         }
     }
@@ -139,85 +102,14 @@ class UploadTableViewController: UITableViewController, UITextFieldDelegate, UIT
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0{
-            return 100
+            return Constants.UploadTableViewController.uploadImageCellHeight
         }else if indexPath.row == 4{
-            return 500
+            return Constants.UploadTableViewController.contentCellHeight
         }else{
-            return 70
+            return Constants.UploadTableViewController.otherCellHieght
         }
     }
-    
-    // MARK: image picking part.
-    func presentPickerView(){
-        var config : PHPickerConfiguration = PHPickerConfiguration()
-        config.filter = PHPickerFilter.images
-        config.selectionLimit = 10
-        
-        let picker : PHPickerViewController = PHPickerViewController(configuration: config)
-        picker.delegate = self
-        self.present(picker, animated: true, completion: nil)
-    }
-    
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        for item in results{
-            item.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-                if let img = image as? UIImage{
-                    self.houseImages.append(img)
-                }
-            }
-        }
-        picker.dismiss(animated: true)
-    }
-    
-    @objc func imagePickerPopUp(){
-        presentPickerView()
-    }
-    
-    
-    // MARK: Collection View data
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return houseImages.count + 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 0 {
 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionView add Button", for: indexPath) as! AddImageButtonCollectionViewCell
-            
-            cell.addImageButton.setTitle("+", for: .normal)
-            cell.addImageButton.addTarget(self, action: #selector(imagePickerPopUp), for: .touchUpInside)
-            
-            for sub in collectionView.subviews{
-                if sub.backgroundColor == .red{
-                    sub.removeFromSuperview()
-                }
-            }
-            
-            return cell
-        }else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection view image cell", for: indexPath) as! ImageCollectionViewCell
-            cell.imageCollectionViewCell.image = houseImages[indexPath.row - 1]
-            cell.imageCollectionViewCell.contentMode = .scaleAspectFill
-            
-            let deleteButton = UIButton(frame: CGRect(x: cell.frame.maxX - 15, y: 15, width: 15, height: 15))
-            
-            deleteButton.setTitle("X", for: .normal)
-            deleteButton.backgroundColor = .red
-            deleteButton.tag = indexPath.row - 1
-            collectionView.addSubview(deleteButton)
-            
-            deleteButton.addTarget(self, action: #selector(tapToDeleteImage), for: .touchUpInside)
-            return cell
-        }
-    }
-    
-    @objc func tapToDeleteImage(_ button : UIButton){
-        houseImages.remove(at: button.tag)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 60)
-    }
     
     
     // MARK: save data to storage.
@@ -249,7 +141,7 @@ class UploadTableViewController: UITableViewController, UITextFieldDelegate, UIT
                     }
                 }
               
-                let ref = db.collection("realestate data")
+                let ref = db.collection(Constants.FireStoreUsedItemCollectionName)
                 ref.document(title).setData([
                     "emai" : email,
                     "title" : title,
@@ -266,7 +158,7 @@ class UploadTableViewController: UITableViewController, UITextFieldDelegate, UIT
                     if let e = error{
                         print(e)
                     }else{
-                        self.performSegue(withIdentifier: "success saving", sender: self)
+                        self.performSegue(withIdentifier: Constants.UploadTableViewController.segueToSuccessScreen, sender: self)
                     }
                 }
                 
@@ -276,3 +168,120 @@ class UploadTableViewController: UITableViewController, UITextFieldDelegate, UIT
     }
 }
 
+
+
+extension UploadTableViewController :  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return Constants.UploadTableViewController.collectionCellSize
+    }
+    
+    
+    // MARK: Collection View data
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return houseImages.count + 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == 0 {
+
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.UploadTableViewController.addImageCollectionViewCellId, for: indexPath) as! AddImageButtonCollectionViewCell
+            
+            cell.addImageButton.setTitle("+", for: .normal)
+            cell.addImageButton.addTarget(self, action: #selector(imagePickerPopUp), for: .touchUpInside)
+            
+            for sub in collectionView.subviews{
+                if sub.backgroundColor == .red{
+                    sub.removeFromSuperview()
+                }
+            }
+            
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.UploadTableViewController.uploadedImagesCollectionViewCellId, for: indexPath) as! ImageCollectionViewCell
+            cell.imageCollectionViewCell.image = houseImages[indexPath.row - 1]
+            cell.imageCollectionViewCell.contentMode = .scaleAspectFill
+            
+            let deleteButton = UIButton(frame: CGRect(x: cell.frame.maxX - 15, y: 15, width: 15, height: 15))
+            
+            deleteButton.setTitle("X", for: .normal)
+            deleteButton.backgroundColor = .red
+            deleteButton.tag = indexPath.row - 1
+            collectionView.addSubview(deleteButton)
+            
+            deleteButton.addTarget(self, action: #selector(tapToDeleteImage), for: .touchUpInside)
+            return cell
+        }
+    }
+    
+    @objc func tapToDeleteImage(_ button : UIButton){
+        houseImages.remove(at: button.tag)
+    }
+    
+}
+
+
+extension UploadTableViewController : UITextFieldDelegate, UITextViewDelegate{
+    
+    // when enter a text into textfield, save text to dic.
+    @objc func valueChanged(_ textField: UITextField){
+        switch textField.tag {
+        case 1:
+            if let itemTitle = textField.text{
+                dic["title"] = itemTitle
+            }
+        case 3:
+            if let itemPrice = textField.text{
+                dic["price"] = itemPrice
+            }
+        default:
+            print("not good.")
+        }
+    }
+
+    // MARK: Getting title, price and content from text field and text view.
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        // In storyboard there is a placeholder.
+        // when begin editing, change text color to black.
+        textView.text = nil
+        textView.textColor = .black
+    }
+    // For content : text view.
+    func textViewDidChange(_ textView: UITextView) {
+        if let itemContent = textView.text{
+            dic["content"] = itemContent
+        }
+    }
+    
+}
+
+
+extension UploadTableViewController : PHPickerViewControllerDelegate{
+
+    // MARK: image picking part.
+    func presentPickerView(){
+        var config : PHPickerConfiguration = PHPickerConfiguration()
+        config.filter = PHPickerFilter.images
+        config.selectionLimit = 10
+        
+        let picker : PHPickerViewController = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        for item in results{
+            item.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                if let img = image as? UIImage{
+                    self.houseImages.append(img)
+                }
+            }
+        }
+        picker.dismiss(animated: true)
+    }
+    
+    @objc func imagePickerPopUp(){
+        presentPickerView()
+    }
+}
