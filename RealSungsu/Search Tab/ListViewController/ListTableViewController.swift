@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 import Firebase
 import Floaty
 
