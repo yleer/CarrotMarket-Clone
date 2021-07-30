@@ -196,7 +196,7 @@
                                     <action selector="signIn:" destination="cAO-S1-KoJ" eventType="touchUpInside" id="rT5-oc-D1l"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호 (최소 8지 이상)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nuM-fj-Xc8">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호 (최소 6지 이상)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nuM-fj-Xc8">
                                 <rect key="frame" x="20" y="289" width="374" height="30"/>
                                 <color key="backgroundColor" red="0.99607843160629272" green="0.96470588445663452" blue="0.92156863212585449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -259,6 +259,12 @@
                                 <color key="textColor" red="0.32156863808631897" green="0.3333333432674408" blue="0.39215683937072754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgL-NN-88u">
+                                <rect key="frame" x="20" y="461" width="374" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YQq-fI-sCU"/>
                         <color key="backgroundColor" red="0.58823529411764708" green="0.75294117647058822" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -269,6 +275,7 @@
                             <constraint firstItem="f2I-3h-RDe" firstAttribute="top" secondItem="7gY-5B-Bih" secondAttribute="bottom" constant="8" id="8ht-Eg-bKc"/>
                             <constraint firstItem="nuM-fj-Xc8" firstAttribute="top" secondItem="KH8-XQ-GY7" secondAttribute="bottom" constant="70" id="8r7-y0-l8h"/>
                             <constraint firstItem="Up8-6q-s0n" firstAttribute="leading" secondItem="f2I-3h-RDe" secondAttribute="leading" id="Cga-58-6eS"/>
+                            <constraint firstItem="WgL-NN-88u" firstAttribute="trailing" secondItem="f2I-3h-RDe" secondAttribute="trailing" id="Dko-sQ-af0"/>
                             <constraint firstItem="nuM-fj-Xc8" firstAttribute="leading" secondItem="YQq-fI-sCU" secondAttribute="leading" constant="20" id="E3K-sV-RDl"/>
                             <constraint firstItem="5RK-9G-JA1" firstAttribute="top" secondItem="Up8-6q-s0n" secondAttribute="bottom" constant="8" id="ERT-g7-Ajd"/>
                             <constraint firstItem="rsb-AW-SDW" firstAttribute="trailing" secondItem="nuM-fj-Xc8" secondAttribute="trailing" id="KYE-JE-kOK"/>
@@ -283,8 +290,10 @@
                             <constraint firstItem="Up8-6q-s0n" firstAttribute="trailing" secondItem="f2I-3h-RDe" secondAttribute="trailing" id="YYQ-Uk-WZc"/>
                             <constraint firstItem="Doe-Bb-gXv" firstAttribute="top" secondItem="nuM-fj-Xc8" secondAttribute="bottom" id="YtP-kT-tDh"/>
                             <constraint firstItem="Doe-Bb-gXv" firstAttribute="leading" secondItem="nuM-fj-Xc8" secondAttribute="leading" id="c7h-9A-7cd"/>
+                            <constraint firstItem="WgL-NN-88u" firstAttribute="top" secondItem="5RK-9G-JA1" secondAttribute="bottom" constant="20" id="cFu-4G-vR5"/>
                             <constraint firstItem="KcY-Rl-Uem" firstAttribute="top" secondItem="YQq-fI-sCU" secondAttribute="top" constant="100" id="dq9-dh-IOg"/>
                             <constraint firstItem="f2I-3h-RDe" firstAttribute="top" secondItem="Doe-Bb-gXv" secondAttribute="bottom" constant="70" id="fvb-dJ-y9U"/>
+                            <constraint firstItem="WgL-NN-88u" firstAttribute="leading" secondItem="f2I-3h-RDe" secondAttribute="leading" id="g1L-Pf-NWj"/>
                             <constraint firstItem="5RK-9G-JA1" firstAttribute="leading" secondItem="f2I-3h-RDe" secondAttribute="leading" id="gBN-bc-Aa1"/>
                             <constraint firstItem="KcY-Rl-Uem" firstAttribute="top" secondItem="KfR-Gn-Z69" secondAttribute="bottom" constant="8" id="gCR-H7-Z8P"/>
                             <constraint firstItem="YQq-fI-sCU" firstAttribute="trailing" secondItem="KcY-Rl-Uem" secondAttribute="trailing" constant="20" id="gxS-l4-q1c"/>
@@ -301,6 +310,7 @@
                     <navigationItem key="navigationItem" id="sy4-lD-Fi8"/>
                     <connections>
                         <outlet property="doubleCheckLabel" destination="5RK-9G-JA1" id="oUn-nE-Tyy"/>
+                        <outlet property="errorMessage" destination="WgL-NN-88u" id="Es1-eM-Lo5"/>
                         <outlet property="idBorderLine" destination="KH8-XQ-GY7" id="g5n-ZF-g2X"/>
                         <outlet property="idHelpLabel" destination="KfR-Gn-Z69" id="bMf-S9-P2F"/>
                         <outlet property="idTextField" destination="KcY-Rl-Uem" id="16N-nf-MV7"/>
@@ -1286,6 +1296,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

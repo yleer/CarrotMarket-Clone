@@ -24,6 +24,8 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet var doubleCheckLabel: UILabel!
     
+    @IBOutlet var errorMessage: UILabel!
+    
     private func configTextField(){
         idTextField.delegate = self
         passwordTextField.delegate = self
@@ -43,18 +45,25 @@ class RegisterViewController: UIViewController {
         configTextField()
     }
 
+   
     @IBAction func signIn(_ sender: UIButton) {
-        if let email = idTextField.text, let password = passwordTextField.text{
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let e = error{
-                    print(e.localizedDescription)
-                }else{
-                    print("succesfully made an account.")
+        if let email = idTextField.text, let password = passwordTextField.text, let passwordCheck = psaswordDoubleCheckTextField.text{
+            if password == passwordCheck{
+                Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                    if let e = error{
+                        self.errorMessage.text = e.localizedDescription
+                    }else{
+                        print("succesfully made an account.")
+                        // 새로운 아이디 만들면 로그인 창으로 가기.
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
+            }else{
+                self.errorMessage.text = "password check not matched"
             }
+            
         }
-        // 새로운 아이디 만들면 로그인 창으로 가기.
-        navigationController?.popViewController(animated: true)
+        
     }
 }
 

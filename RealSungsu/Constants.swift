@@ -54,6 +54,8 @@ struct Constants {
         static let kakoEndPoint = "https://dapi.kakao.com/v2/local/search/address.json"
         static let jusoConfirmKet = "devU01TX0FVVEgyMDIxMDcwMzE1MjYxNzExMTM1MzQ="
         static let jusoEndPoint = "https://www.juso.go.kr/addrlink/addrLinkApi.do"
+        
+    
     }
     
     struct ChatListTableViewController {

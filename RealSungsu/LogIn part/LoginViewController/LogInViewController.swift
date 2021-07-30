@@ -51,7 +51,7 @@ class LogInViewController: UIViewController{
 }
 
 
-// MARK: TextFieldDelegate
+// MARK: TextFieldDelegate : 텍스트 필드 관련 UI change.
 extension LogInViewController : UITextFieldDelegate{
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -72,11 +72,13 @@ extension LogInViewController : UITextFieldDelegate{
         if textField.tag == 1{
             if textField.text == ""{
                 idHelpLabel.isHidden = true
+                textField.placeholder = "이메일"
             }
             
         }else{
             if textField.text == ""{
                 passwordHelpLabel.isHidden = true
+                textField.placeholder = "비밀번호"
             }
         }
     }

@@ -56,32 +56,26 @@ class LocationSearchViewController: UIViewController {
     }
     
     func findingXYCoordinate(){
-        let headers: HTTPHeaders = [
+        let KakaoHeaders: HTTPHeaders = [
             "Authorization": Constants.LocationSearchVC.kakoAuth
         ]
         
-        let parameters: [String: Any] = [
+        let KakaoParameters: [String: Any] = [
             "query": selectedLocation!.loaction
         ]
-        
-        AF.request(Constants.LocationSearchVC.kakoEndPoint, method: .get,
-                   parameters: parameters, headers: headers)
-            .responseJSON(completionHandler: { response in
-                switch response.result {
-                
-                case .success(let value):
-                    
-                    if let detailsPlace : documentResponse  = self.toJson(object: value){
-                        self.selectedLocation!.x = detailsPlace.documents[0].x
-                        self.selectedLocation!.y = detailsPlace.documents[0].y
-                    }else{
-                        print("good")
-                    }
-                    
-                case .failure(let error):
-                    print(error)
+        AF.request(Constants.LocationSearchVC.kakoEndPoint, method: .get, parameters: KakaoParameters, headers: KakaoHeaders).responseJSON { response in
+            switch response.result{
+            case .success(let value):
+                if let detailsPlace : documentResponse  = self.toJson(object: value){
+                    self.selectedLocation!.x = detailsPlace.documents[0].x
+                    self.selectedLocation!.y = detailsPlace.documents[0].y
+                }else{
+                    print("good")
                 }
-            })
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     
